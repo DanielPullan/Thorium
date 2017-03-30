@@ -10,12 +10,12 @@ general font avenir LT
 */
 
 :root {
-	--primary-colour: #2a2a2a;
-	--background-colour: #0e1130;
-	--text-colour: #fff;
-	--panel-warning: #ff9a03;
+    --primary-colour: #2a2a2a;
+    --background-colour: #0e1130;
+    --text-colour: #fff;
+    --panel-warning: #ff9a03;
     --primary-font: 'Libre Baskerville', serif;
-	--secondary-font: 'Nunito', sans-serif;
+    --secondary-font: 'Nunito', sans-serif;
 }
 
 html {
@@ -27,12 +27,17 @@ h1 {
     font-family: var(--primary-font);
     margin: 0;
 }
+
 p {
-	color: var(--text-colour);
-	font-family: var(--secondary-font);
+    color: var(--text-colour);
+    font-family: var(--secondary-font);
     margin: 0;
 }
-img { 
+
+img {
     max-width: 100%;
     max-height: 100%;
+}
+.timeline-Tweet-text {
+    color: #fff!important;
 }

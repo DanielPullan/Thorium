@@ -55,7 +55,8 @@
             </ul>
         </div>
         <div class="col-2">
-            <a class="twitter-timeline" data-width="800" data-height="1080" tweet-limit="5" data-theme="dark" href="https://twitter.com/poole_high">Tweets by poole_high</a>
+            <a class="twitter-timeline" href="https://twitter.com/poole_high" theme="dark" data-chrome="noscrollbar transparent" data-width="400" data-height="800" tweet-limit="3">
+</a>
         </div>
     </div>
 
@@ -79,22 +80,25 @@
 
 </script>
 
-<script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
+<script>
+    window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+        t._e = [];
+        t.ready = function(f) {
+            t._e.push(f);
+        };
 
-  return t;
-}(document, "script", "twitter-wjs"));</script>
+        return t;
+    }(document, "script", "twitter-wjs"));
+
+</script>
 
 
 </html>
