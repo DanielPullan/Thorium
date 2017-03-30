@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-<!--    <link rel="stylesheet" href="/css/bootstrap.min.css" -->
+    <link rel="stylesheet" href="/css/grid.css"
 </head>
 
 <body>
