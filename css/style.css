@@ -1,7 +1,7 @@
 /*
 the dark blue #0e1130
 the lighter blue #3683c5
-the lightest blue
+the lightest blue #79bde8
 the dark colour #393939
 
 header font libre baskerville
@@ -11,10 +11,11 @@ general font avenir LT
 
 :root {
 	--primary-colour: #2a2a2a;
-	--background-colour: #393939;
+	--background-colour: #0e1130;
 	--text-colour: #fff;
 	--panel-warning: #ff9a03;
     --primary-font: 'Libre Baskerville', serif;
+	--secondary-font: 'Nunito', sans-serif;
 }
 
 html {
@@ -24,4 +25,8 @@ html {
 h1 {
     color: var(--text-colour);
     font-family: var(--primary-font)
+}
+p {
+	color: var(--text-colour);
+	font-family: var(--secondary-font)
 }
