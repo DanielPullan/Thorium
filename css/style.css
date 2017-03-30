@@ -24,31 +24,15 @@ html {
 
 h1 {
     color: var(--text-colour);
-    font-family: var(--primary-font)
+    font-family: var(--primary-font);
+    margin: 0;
 }
 p {
 	color: var(--text-colour);
-	font-family: var(--secondary-font)
+	font-family: var(--secondary-font);
+    margin: 0;
 }
-
-
-#slideshow {
-    margin: 50px auto;
-    position: relative;
-    width: 240px;
-    height: 240px;
-    padding: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-}
-
-#slideshow > div {
-    position: relative;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-}
-img {
-    height: 10%;
-    width: 10%;
+img { 
+    max-width: 100%;
+    max-height: 100%;
 }

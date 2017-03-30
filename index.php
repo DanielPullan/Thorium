@@ -1,49 +1,100 @@
 <html>
 
 <head>
-    <title>Localhost - Thorium</title>
+    <title>Localhost - Thoriums
+    </title>
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="/css/grid.css" </head>
+    <link rel="stylesheet" href="/css/simple-grid.css">
+</head>
 
-    <body>
-        <!-- Header part -->
-        <h1>Header</h1>
-        <!-- Body Part -->
-        <p>Libre ipsum something all work and no play makes homer something something</p>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<link href="/lib/jquery.bxslider.css" rel="stylesheet" />
+<script src="/js/jquery.bxslider.min.js"></script>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</head>
 
-
-
-        <div id="slideshow">
-            <div>
-                <img src="/images/1.jpg">
-            </div>
-            <div>
-                <img src="/images/2.jpg">
-            </div>
-            <div>
-                <img src="/images/3.jpg">
-            </div>
+<body>
+    <!-- Header part -->
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h1>Poole High School</h1>
+            <p>twitter.com/Poole_High facebook.com/poolehs</p>
         </div>
+    </div>
 
-        <!-- Footer Part -->
+    <!-- Body Part -->
+
+    <div class="row">
+        <div class="col-2">
+            <ul class="bxslider2">
+                <li>
+                    <p>Something happened</p>
+                </li>
+                <li>
+                    <p>Something else happened</p>
+                </li>
+                <li>
+                    <p>yet more stuff happened</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-8">
+            <ul class="bxslider">
+                <li><img src="/images/1.jpg" />
+                    <p>Something happened</p>
+                </li>
+                <li><img src="/images/2.jpg" />
+                    <p>Something else happened</p>
+                </li>
+                <li><img src="/images/3.jpg" />
+                    <p>yet more stuff happened</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-2">
+            <a class="twitter-timeline" data-width="800" data-height="1080" tweet-limit="5" data-theme="dark" href="https://twitter.com/poole_high">Tweets by poole_high</a>
+        </div>
+    </div>
+
+    <!-- Footer Part -->
 
 
-    </body>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script>
-        $("#slideshow > div:gt(0)").hide();
+</body>
 
-        setInterval(function() {
-            $('#slideshow > div:first')
-                .fadeOut(1000)
-                .next()
-                .fadeIn(1000)
-                .end()
-                .appendTo('#slideshow');
-        }, 3000);
+<script>
+    $('.bxslider').bxSlider({
+        auto: true,
+        autoControls: true,
+        speed: 800
+    });
 
-    </script>
+    $('.bxslider2').bxSlider({
+        auto: true,
+        autoControls: true,
+        speed: 800
+    });
+
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
 
 </html>
