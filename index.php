@@ -1,18 +1,15 @@
 <html>
 
 <head>
-    <title>Localhost - Thoriums
-    </title>
+    <title>Localhost - Thoriums</title>
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="/css/simple-grid.css">
-</head>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<link href="/lib/jquery.bxslider.css" rel="stylesheet" />
-<script src="/js/jquery.bxslider.min.js"></script>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <link href="/lib/jquery.bxslider.css" rel="stylesheet" />
+    <script src="/js/jquery.bxslider.min.js"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -42,7 +39,8 @@
             </ul>
         </div>
         <div class="col-8">
-            <ul class="bxslider">
+            <div id="slider">
+            <ul>
                 <li><img src="/images/1.jpg" />
                     <p>Something happened</p>
                 </li>
@@ -54,6 +52,7 @@
                 </li>
             </ul>
         </div>
+        </div>
         <div class="col-2">
             <a class="twitter-timeline" href="https://twitter.com/poole_high" theme="dark" data-chrome="noscrollbar transparent" data-width="400" data-height="800" tweet-limit="3">
 </a>
@@ -64,21 +63,6 @@
 
 
 </body>
-
-<script>
-    $('.bxslider').bxSlider({
-        auto: true,
-        autoControls: true,
-        speed: 800
-    });
-
-    $('.bxslider2').bxSlider({
-        auto: true,
-        autoControls: true,
-        speed: 800
-    });
-
-</script>
 
 <script>
     window.twttr = (function(d, s, id) {
