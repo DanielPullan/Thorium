@@ -32,6 +32,7 @@ html {
 }
 .headerList {
     margin-right: 5%!important;
+    text-align: right;
 }
 .panel {
     background-color: var(--panel-background);
@@ -52,6 +53,10 @@ p {
     color: var(--text-colour);
     font-family: var(--secondary-font);
     margin: 0;
+}
+.fa {
+    color: #fff;
+    padding-right: 10px;
 }
 
 img {
