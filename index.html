@@ -1,0 +1,154 @@
+<html>
+
+<head>
+    <title>Localhost - Thoriums</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/simple-grid.css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <!-- Header part -->
+    <div class="row header">
+        <div class="col-8">
+            <h1>Poole High School</h1>
+        </div>
+        <div class="col-4 headerList">
+            <ul>
+                <li>
+                    <p>twitter.com/poole_high</p>
+                </li>
+                <li>
+                    <p>facebook.com/poolehs</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row col-12 panel">
+        <p>Today will be a snow day, so you won't be able to read this. If you can read this, go home.</p>
+    </div>
+
+    <!-- Body Part -->
+    <div class="row">
+        <div class="col-2">
+            <div class="slider">
+                <ul>
+                    <li>
+                        <p>Something happened</p>
+                    </li>
+                    <li>
+                        <p>Something else happened</p>
+                    </li>
+                    <li>
+                        <p>yet more stuff happened</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-8">
+            <div id="slider">
+                <ul>
+                    <li><img src="/images/1.jpg" />
+                        <p>Something happened</p>
+                    </li>
+                    <li><img src="/images/2.jpg" />
+                        <p>Something else happened</p>
+                    </li>
+                    <li><img src="/images/3.jpg" />
+                        <p>yet more stuff happened</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-2">
+            <a class="twitter-timeline" href="https://twitter.com/poole_high" theme="dark" data-chrome="noscrollbar transparent" data-width="400" data-height="800" tweet-limit="3">
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer Part -->
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script>
+    jQuery(document).ready(function($) {
+
+        $('#checkbox').ready(function() {
+            setInterval(function() {
+                moveRight();
+            }, 3000);
+        });
+
+        var slideCount = $('#slider ul li').length;
+        var slideWidth = $('#slider ul li').width();
+        var slideHeight = $('#slider ul li').height();
+        var sliderUlWidth = slideCount * slideWidth;
+
+        $('#slider').css({
+            width: slideWidth,
+            height: slideHeight
+        });
+
+        $('#slider ul').css({
+            width: sliderUlWidth,
+            marginLeft: -slideWidth
+        });
+
+        $('#slider ul li:last-child').prependTo('#slider ul');
+
+        function moveLeft() {
+            $('#slider ul').animate({
+                left: +slideWidth
+            }, 200, function() {
+                $('#slider ul li:last-child').prependTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+        };
+
+        function moveRight() {
+            $('#slider ul').animate({
+                left: -slideWidth
+            }, 200, function() {
+                $('#slider ul li:first-child').appendTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+        };
+
+        $('a.control_prev').click(function() {
+            moveLeft();
+        });
+
+        $('a.control_next').click(function() {
+            moveRight();
+        });
+
+    });
+
+</script>
+
+<script>
+    window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));
+
+</script>
+
+
+</html>

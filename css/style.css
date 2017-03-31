@@ -11,21 +11,34 @@ general font avenir LT
 
 :root {
     --primary-colour: #2a2a2a;
-    --background-colour: #0e1130;
+    --background-colour: #393939;
+    --header-background-color: #0e1130;
     --text-colour: #fff;
     --panel-warning: #ff9a03;
     --primary-font: 'Libre Baskerville', serif;
     --secondary-font: 'Nunito', sans-serif;
+    --panel-background: #3683c5;
 }
 
 html {
     background-color: var(--background-colour);
+}
+.header {
+    background-color: var(--header-background-color);
+}
+.headerList {
+    text-align: right;
+}
+.panel {
+    background-color: var(--panel-background);
+    width: 100%!important;
 }
 
 h1 {
     color: var(--text-colour);
     font-family: var(--primary-font);
     margin: 0;
+    text-align: left;
 }
 
 p {
@@ -44,20 +57,12 @@ img {
 
 html {
   border-top: 5px solid #fff;
-  background: #58DDAF;
-  color: #2a2a2a;
 }
 
 html, body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans';
-}
-
-h1 {
-  color: #fff;
-  text-align: center;
-  font-weight: 300;
 }
 
 #slider {
@@ -83,7 +88,6 @@ h1 {
   padding: 0;
   width: 500px;
   height: 300px;
-  background: #ccc;
   text-align: center;
   line-height: 300px;
 }
