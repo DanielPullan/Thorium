@@ -40,4 +40,4 @@ elif userInput == ("gulltopp"):
         print("exported to gulltopp")
 
 else:
-        print ("sorry, ", userInput, " is not recognised")
+        print ("Sorry, "+ userInput+" is not recognised").
