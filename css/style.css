@@ -26,12 +26,19 @@ html {
 .header {
     background-color: var(--header-background-color);
 }
+.headerText {
+    margin-top: 20px;
+    margin-left: 5%;
+}
 .headerList {
-    text-align: right;
+    margin-right: 5%!important;
 }
 .panel {
     background-color: var(--panel-background);
     width: 100%!important;
+}
+.panelText {
+    margin-left: 5%;
 }
 
 h1 {
@@ -53,16 +60,6 @@ img {
 }
 .timeline-Tweet-text {
     color: #fff!important;
-}
-
-html {
-  border-top: 5px solid #fff;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans';
 }
 
 #slider {
