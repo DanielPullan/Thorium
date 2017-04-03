@@ -14,10 +14,10 @@ exportSinir = ["rsync", "-a", "/var/www/html", "pi@sinir:/var/www/", "--delete"]
 exportGisl = ["rsync", "-a", "/var/www/html", "pi@gisl:/var/www/", "--delete"]
 exportGulltopp = ["rsync", "-a", "/var/www/html", "pi@gulltopp:/var/www/", "--delete"]
 
-restartGyllir = ["SSH", "pi@gyllir", "sudo", "shutdown", "-r", "now"]
-resstartSinir = ["SSH", "pi@sinir", "sudo", "shutdown", "-r", "now"]
-restartGisl = ["SSH", "pi@gisl", "sudo", "shutdown", "-r", "now"]
-restartGulltopp = ["SSH", "pi@gulltopp", "sudo", "shutdown", "-r", "now"]
+restartGyllir = ["ssh", "pi@gyllir", "sudo", "shutdown", "-r", "now"]
+restartSinir = ["ssh", "pi@sinir", "sudo", "shutdown", "-r", "now"]
+restartGisl = ["ssh", "pi@gisl", "sudo", "shutdown", "-r", "now"]
+restartGulltopp = ["ssh", "pi@gulltopp", "sudo", "shutdown", "-r", "now"]
 
 ## if userInput is all, rsync to every pi. have 5 sec's inbetween as a breather for network
 ## add time for logging
@@ -57,16 +57,16 @@ elif clientsAffected == ("gulltopp") and userCommand == ("export"):
 
 elif clientsAffected == ("all") and userCommand == ("restart"):
         subprocess.call(restartGyllir)
-        print("exported to gyllir at "+time.strftime("%H:%M:%S"))
+        print("restarted gyllir at "+time.strftime("%H:%M:%S"))
         time.sleep(5)
         subprocess.call(restartSinir)
-        print("exported to sinir at "+time.strftime("%H:%M:%S"))
+        print("restarted sinir at "+time.strftime("%H:%M:%S"))
         time.sleep(5)
         subprocess.call(restartGisl)
-        print("exported to gisl at "+time.strftime("%H:%M:%S"))
+        print("restarted gisl at "+time.strftime("%H:%M:%S"))
         time.sleep(5)
         subprocess.call(restartGulltopp)
-        print("exported to gulltopp at "+time.strftime("%H:%M:%S"))
+        print("restarted gulltopp at "+time.strftime("%H:%M:%S"))
 
 ## restart only one pi
 ## add time for logging
