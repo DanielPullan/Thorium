@@ -42,7 +42,6 @@ html {
     background-color: var(--header-background-colour);
     border: 3px var(--header-background-color) solid;
     border-radius: 10px;
-    marg
 }
 .panelText {
     margin-left: 4%;
@@ -73,6 +72,9 @@ img {
 ul {
   list-style-type: none;
   -webkit-padding-start: 0px;
+}
+.calendarText {
+    padding: 10px;
 }
 #slider {
   position: relative;
