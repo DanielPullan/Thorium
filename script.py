@@ -57,13 +57,10 @@ elif clientsAffected == ("gulltopp") and userCommand == ("export"):
 elif clientsAffected == ("all") and userCommand == ("restart"):
         subprocess.call(restartGyllir)
         print("restarted gyllir at "+time.strftime("%H:%M:%S"))
-        time.sleep(5)
         subprocess.call(restartSinir)
         print("restarted sinir at "+time.strftime("%H:%M:%S"))
-        time.sleep(5)
         subprocess.call(restartGisl)
         print("restarted gisl at "+time.strftime("%H:%M:%S"))
-        time.sleep(5)
         subprocess.call(restartGulltopp)
         print("restarted gulltopp at "+time.strftime("%H:%M:%S"))
 
