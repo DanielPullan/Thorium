@@ -7,7 +7,6 @@ import subprocess
 userCommand = raw_input("what would you like to do?: ")
 clientsAffected = raw_input("to which clients?: ")
 
-
 ## define all the clients and the commands to rsync to them
 exportGyllir = ["rsync", "-a", "/var/www/html", "pi@gyllir:/var/www/", "--delete"]
 exportSinir = ["rsync", "-a", "/var/www/html", "pi@sinir:/var/www/", "--delete"]
@@ -37,22 +36,22 @@ if clientsAffected == ("all") and userCommand == ("export"):
 ## export to nly one pi
 ## add time for logging
 elif clientsAffected == ("gyllir") and userCommand == ("export"):
-        subprocess.call(gyllir)
+        subprocess.call(exportGyllir)
         print("exported to gyllir "+time.strftime("%H:%M:%S"))
 ## export to only one pi
 ## add time for logging
 elif clientsAffected == ("sinir") and userCommand == ("export"):
-        subprocess.call(sinir)
+        subprocess.call(exportSinir)
         print("exported to sinir "+time.strftime("%H:%M:%S"))
 ## export to only one pi
 ## add time for logging
 elif clientsAffected == ("gisl") and userCommand == ("export"):
-        subprocess.call(gisl)
+        subprocess.call(exportGisl)
         print("exported to gisl "+time.strftime("%H:%M:%S"))
 ## export to only one pi
 ## add time for logging
 elif clientsAffected == ("gulltopp") and userCommand == ("export"):
-        subprocess.call(gulltopp)
+        subprocess.call(exportGulltopp)
         print("exported to gulltopp "+time.strftime("%H:%M:%S"))
 
 elif clientsAffected == ("all") and userCommand == ("restart"):
@@ -71,22 +70,22 @@ elif clientsAffected == ("all") and userCommand == ("restart"):
 ## restart only one pi
 ## add time for logging
 elif clientsAffected == ("gyllir") and userCommand == ("restart"):
-        subprocess.call(gyllir)
+        subprocess.call(restartGyllir)
         print("restarted gyllir "+time.strftime("%H:%M:%S"))
 ## restart only one pi
 ## add time for logging
 elif clientsAffected == ("sinir") and userCommand == ("restart"):
-        subprocess.call(sinir)
+        subprocess.call(restartSinir)
         print("restarted sinir "+time.strftime("%H:%M:%S"))
 ## restart only one pi
 ## add time for logging
 elif clientsAffected == ("gisl") and userCommand == ("restart"):
-        subprocess.call(gisl)
+        subprocess.call(restartGisl)
         print("restarted gisl "+time.strftime("%H:%M:%S"))
 ## restart only one pi
 ## add time for logging
 elif clientsAffected == ("gulltopp") and userCommand == ("restart"):
-        subprocess.call(gulltopp)
+        subprocess.call(restartGulltopp)
         print("restarted gulltopp "+time.strftime("%H:%M:%S"))
 
 else:
