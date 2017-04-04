@@ -59,6 +59,8 @@ elif clientsAffected == ("gulltopp") and userCommand == ("export"):
         subprocess.call(exportGulltopp)
         print("exported to gulltopp "+time.strftime("%H:%M:%S"))
 
+## restart all the clients
+## add time for logging
 elif clientsAffected == ("all") and userCommand == ("restart"):
         subprocess.call(restartGyllir)
         print("restarted gyllir at "+time.strftime("%H:%M:%S"))
@@ -90,24 +92,38 @@ elif clientsAffected == ("gulltopp") and userCommand == ("restart"):
         subprocess.call(restartGulltopp)
         print("restarted gulltopp "+time.strftime("%H:%M:%S"))
 
+## upgrade all the clients
+## add time for logging
 elif clientsAffected == ("all") and userCommand == ("upgrade"):
         subprocess.call(upgradeGyllir)
+        print("upgraded gyllir at "+time.strftime("%H:%M:%S"))
         subprocess.call(upgradeSinir)
+        print("upgraded sinir at "+time.strftime("%H:%M:%S"))
         subprocess.call(upgradeGisl)
+        print("upgraded gisl at "+time.strftime("%H:%M:%S"))
         subprocess.call(upgradeGulltopp)
+        print("upgraded gulltopp at "+time.strftime("%H:%M:%S"))
 
-## restart only one pi
+## upgrade only one pi
 ## add time for logging
 elif clientsAffected == ("gyllir") and userCommand == ("upgrade"):
-## restart only one pi
+        subprocess.call(upgradeGyllir)
+        print("upgraded gyllir "+time.strftime("%H:%M:%S"))
+## upgrade only one pi
 ## add time for logging
 elif clientsAffected == ("sinir") and userCommand == ("upgrade"):
-## restart only one pi
+        subprocess.call(upgradeSinir)
+        print("upgraded sinir "+time.strftime("%H:%M:%S"))
+## upgrade only one pi
 ## add time for logging
 elif clientsAffected == ("gisl") and userCommand == ("upgrade"):
-## restart only one pi
+        subprocess.call(upgradeGisl)
+        print("upgraded gisl "+time.strftime("%H:%M:%S"))
+## upgrade only one pi
 ## add time for logging
 elif clientsAffected == ("gulltopp") and userCommand == ("upgrade"):
+        subprocess.call(upgradeGulltopp)
+        print("upgraded gulltopp "+time.strftime("%H:%M:%S"))
 
 else:
         print ("Sorry, "+ userInput+" is not recognised")
