@@ -8,10 +8,10 @@ userCommand = raw_input("what would you like to do?: ")
 clientsAffected = raw_input("to which clients?: ")
 
 ## define all the clients and the commands to rsync to them
-exportGyllir = ["rsync", "-a", "/var/www/html", "pi@gyllir:/var/www/", "--delete"]
-exportSinir = ["rsync", "-a", "/var/www/html", "pi@sinir:/var/www/", "--delete"]
-exportGisl = ["rsync", "-a", "/var/www/html", "pi@gisl:/var/www/", "--delete"]
-exportGulltopp = ["rsync", "-a", "/var/www/html", "pi@gulltopp:/var/www/", "--delete"]
+exportGyllir = ["rsync", "-a", "/var/www/", "pi@gyllir:/var/www/", "--delete"]
+exportSinir = ["rsync", "-a", "/var/www/", "pi@sinir:/var/www/", "--delete"]
+exportGisl = ["rsync", "-a", "/var/www/", "pi@gisl:/var/www/", "--delete"]
+exportGulltopp = ["rsync", "-a", "/var/www/", "pi@gulltopp:/var/www/", "--delete"]
 
 restartGyllir = ["ssh", "pi@gyllir", "sudo", "shutdown", "-r", "now"]
 restartSinir = ["ssh", "pi@sinir", "sudo", "shutdown", "-r", "now"]
