@@ -18,6 +18,11 @@ restartSinir = ["ssh", "pi@sinir", "sudo", "shutdown", "-r", "now"]
 restartGisl = ["ssh", "pi@gisl", "sudo", "shutdown", "-r", "now"]
 restartGulltopp = ["ssh", "pi@gulltopp", "sudo", "shutdown", "-r", "now"]
 
+upgradeGyllir = ["ssh", "pi@ggyllir", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
+upgradeSinir = ["ssh", "pi@sinir", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
+upgradeGisl = ["ssh", "pi@gisl", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
+upgradeGulltopp = ["ssh", "pi@gulltopp", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
+
 ## if userInput is all, rsync to every pi. have 5 sec's inbetween as a breather for network
 ## add time for logging
 if clientsAffected == ("all") and userCommand == ("export"):
@@ -84,6 +89,25 @@ elif clientsAffected == ("gisl") and userCommand == ("restart"):
 elif clientsAffected == ("gulltopp") and userCommand == ("restart"):
         subprocess.call(restartGulltopp)
         print("restarted gulltopp "+time.strftime("%H:%M:%S"))
+
+elif clientsAffected == ("all") and userCommand == ("upgrade"):
+        subprocess.call(upgradeGyllir)
+        subprocess.call(upgradeSinir)
+        subprocess.call(upgradeGisl)
+        subprocess.call(upgradeGulltopp)
+
+## restart only one pi
+## add time for logging
+elif clientsAffected == ("gyllir") and userCommand == ("upgrade"):
+## restart only one pi
+## add time for logging
+elif clientsAffected == ("sinir") and userCommand == ("upgrade"):
+## restart only one pi
+## add time for logging
+elif clientsAffected == ("gisl") and userCommand == ("upgrade"):
+## restart only one pi
+## add time for logging
+elif clientsAffected == ("gulltopp") and userCommand == ("upgrade"):
 
 else:
         print ("Sorry, "+ userInput+" is not recognised")
