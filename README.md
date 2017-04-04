@@ -17,6 +17,12 @@ Statuses release, rc (release candidate), beta, dev
 For example, 1.0.dev is the development of version 1.0. 1.0.release would be the public version.
 
 
+files that need editing on the pi's
+/etc/sudoers.d/010_pi-nopasswd (add SERVERUSERNAME ALL=(ALL) NOPASSWD: ALL)
+/boot/config.txt (hdmi_force_hotplug=1 hdmi_drive=2)
+/home/pi/.config/lxsession/LXDE-pi/autostart (add @chromium-browser --incognito --kiosk http://localhost/)
+
+
 - install chromium browser
 - set web directory to /var/www/Thorium
 - install lite version of raspbian
@@ -27,5 +33,7 @@ sudo apt-get install raspberrypi-ui-mods
 sudo apt-get install chromium-browser
 
 nano /home/pi/.config/lxsession/LXDE-pi/autostart
+
+edit sudoers so master server can do sudo commands without having to input the command (fixes issue #5)
 
 @chromium-browser --incognito --kiosk http://localhost/  # load chromium after boot and point to the localhost webserver in full screen mode (add on the last line)

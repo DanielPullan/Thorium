@@ -18,10 +18,11 @@ restartSinir = ["ssh", "pi@sinir", "sudo", "shutdown", "-r", "now"]
 restartGisl = ["ssh", "pi@gisl", "sudo", "shutdown", "-r", "now"]
 restartGulltopp = ["ssh", "pi@gulltopp", "sudo", "shutdown", "-r", "now"]
 
-upgradeGyllir = ["ssh", "pi@gyllir", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
-upgradeSinir = ["ssh", "pi@sinir", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
-upgradeGisl = ["ssh", "pi@gisl", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
-upgradeGulltopp = ["ssh", "pi@gulltopp", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
+## using apt-get instead of apt as apt's cli is not stable yet
+ upgradeGyllir = ["ssh", "pi@gyllir", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+ upgradeSinir = ["ssh", "pi@sinir", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+ upgradeGisl = ["ssh", "pi@gisl", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+ upgradeGulltopp = ["ssh", "pi@gulltopp", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
 
 ## if userInput is all, rsync to every pi. have 5 sec's inbetween as a breather for network
 ## add time for logging
@@ -95,6 +96,7 @@ elif clientsAffected == ("gulltopp") and userCommand == ("restart"):
 ## upgrade all the clients
 ## add time for logging
 elif clientsAffected == ("all") and userCommand == ("upgrade"):
+        print("This process can take a very long time, please be patient")
         subprocess.call(upgradeGyllir)
         print("upgraded gyllir at "+time.strftime("%H:%M:%S"))
         subprocess.call(upgradeSinir)
@@ -107,21 +109,25 @@ elif clientsAffected == ("all") and userCommand == ("upgrade"):
 ## upgrade only one pi
 ## add time for logging
 elif clientsAffected == ("gyllir") and userCommand == ("upgrade"):
+        print("This process can take a very long time, please be patient")
         subprocess.call(upgradeGyllir)
         print("upgraded gyllir "+time.strftime("%H:%M:%S"))
 ## upgrade only one pi
 ## add time for logging
 elif clientsAffected == ("sinir") and userCommand == ("upgrade"):
+        print("This process can take a very long time, please be patient")
         subprocess.call(upgradeSinir)
         print("upgraded sinir "+time.strftime("%H:%M:%S"))
 ## upgrade only one pi
 ## add time for logging
 elif clientsAffected == ("gisl") and userCommand == ("upgrade"):
+        print("This process can take a very long time, please be patient")
         subprocess.call(upgradeGisl)
         print("upgraded gisl "+time.strftime("%H:%M:%S"))
 ## upgrade only one pi
 ## add time for logging
 elif clientsAffected == ("gulltopp") and userCommand == ("upgrade"):
+        print("This process can take a very long time, please be patient")
         subprocess.call(upgradeGulltopp)
         print("upgraded gulltopp "+time.strftime("%H:%M:%S"))
 
