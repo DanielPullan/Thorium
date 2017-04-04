@@ -18,7 +18,7 @@ restartSinir = ["ssh", "pi@sinir", "sudo", "shutdown", "-r", "now"]
 restartGisl = ["ssh", "pi@gisl", "sudo", "shutdown", "-r", "now"]
 restartGulltopp = ["ssh", "pi@gulltopp", "sudo", "shutdown", "-r", "now"]
 
-upgradeGyllir = ["ssh", "pi@ggyllir", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
+upgradeGyllir = ["ssh", "pi@gyllir", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
 upgradeSinir = ["ssh", "pi@sinir", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
 upgradeGisl = ["ssh", "pi@gisl", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
 upgradeGulltopp = ["ssh", "pi@gulltopp", "sudo", "apt", "update", "&&", "apt", "upgrade", "-y"]
