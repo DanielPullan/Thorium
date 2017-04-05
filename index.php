@@ -11,90 +11,15 @@
 </head>
 
 <body>
-    <!-- Header part -->
-    <div class="row header">
-        <div class="col-7">
-            <h1 class="headerText">Poole High School</h1>
-        </div>
-        <div class="col-2">
-            <ul>
-                <li>
-                    <p id="date"></p>
-                </li>
-            </ul>
-        </div>
-        <div class="col-3">
-            <div class="headerList">
-                <ul>
-                    <li>
-                        <p><i class="fa fa-twitter fa-2x"></i>twitter.com/poole_high</p>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-facebook fa-2x"></i>facebook.com/poolehs</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
-    <div class="row col-12 panel">
-        <p class="panelText">Today will be a snow day, so you won't be able to read this. If you can read this, go home.</p>
-    </div>
+    <?php
 
-    <!-- Body Part -->
-    <div class="row">
-        <div class="col-3">
-            <div class="slider datePanel">
-                <ul>
-                    <li>
-                        <p class="calendarText">
-                            03/04/2017
-                        </p>
-                        <P class="calendarText">
-                            Thorium was updated a bunch of times
-                        </P>
-                        <hr />
-                    </li>
-                    <li>
-                        <p class="calendarText">
-                            03/04/2017
-                        </p>
-                        <P class="calendarText">
-                            Thorium was updated a bunch of times
-                        </P>
-                        <hr />
-                    </li>
-                    <li>
-                        <p class="calendarText">
-                            03/04/2017
-                        </p>
-                        <P class="calendarText">
-                            Thorium was updated a bunch of times
-                        </P>
-
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-7">
-            <div id="slider">
-                <ul>
-                    <li><img src="/images/1.jpg" />
-                    </li>
-                    <li><img src="/images/2.jpg" />
-                    </li>
-                    <li><img src="/images/3.jpg" />
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-2">
-            <a class="twitter-timeline" href="https://twitter.com/poole_high" data-chrome="noscrollbar" data-width="400" data-height="500" tweet-limit="3">
-            </a>
-        </div>
-    </div>
-
-    <!-- Footer Part -->
+    	//Page
+    	include (__DIR__.'/header.php');
+        include (__DIR__.'/banner.php');
+    	include (__DIR__.'/content.php');
+    	include (__DIR__.'/footer.php');
+    ?>
 
 
 </body>
