@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <?php
+        $myGallery = simplexml_load_file('sampleData.xml');
+        echo $myGallery->image[0]->image;
+        ?>
 
     <?php
 

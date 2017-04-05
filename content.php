@@ -35,12 +35,16 @@
     <div class="col-7">
         <div id="slider">
             <ul>
-                <li><img src="/images/1.jpg" />
-                </li>
-                <li><img src="/images/2.jpg" />
-                </li>
-                <li><img src="/images/3.jpg" />
-                </li>
+                <<?php
+                $xml = simplexml_load_file('slider.xml');
+
+            // thanks madison for showing me how to make this bit work
+                foreach($xml->children() as $image) {
+                    echo "<li>
+                            <img src='".$image->link."' />
+                        </li>";
+                }
+                ?>
             </ul>
         </div>
     </div>
