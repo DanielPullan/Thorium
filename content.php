@@ -2,33 +2,9 @@
     <div class="col-3">
         <div class="slider datePanel">
             <ul>
-                <li>
-                    <p class="calendarText">
-                        03/04/2017
-                    </p>
-                    <P class="calendarText">
-                        Thorium was updated a bunch of times
-                    </P>
-                    <hr />
-                </li>
-                <li>
-                    <p class="calendarText">
-                        03/04/2017
-                    </p>
-                    <P class="calendarText">
-                        Thorium was updated a bunch of times
-                    </P>
-                    <hr />
-                </li>
-                <li>
-                    <p class="calendarText">
-                        03/04/2017
-                    </p>
-                    <P class="calendarText">
-                        Thorium was updated a bunch of times
-                    </P>
-
-                </li>
+                <<?php
+                include (__DIR__.'/data.php');
+                ?>
             </ul>
         </div>
     </div>
