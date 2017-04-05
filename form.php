@@ -4,7 +4,7 @@ if(isset($_POST['field1']) && isset($_POST['field2'])) {
     "<li><p class='calendarText'>"." ".$_POST['field3'] . "</p><p class='calendarText'>" . $_POST['field4'] ."</p></li>". "\n".
     "<li><p class='calendarText'>"." ".$_POST['field5'] . "</p><p class='calendarText'>" . $_POST['field6'] ."</p></li>". "\n".
     "<li><p class='calendarText'>"." ".$_POST['field7'] . "</p><p class='calendarText'>" . $_POST['field8'] ."</p></li>". "\n";
-    $ret = file_put_contents('data.php', $data, FILE_APPEND | LOCK_EX);
+    $ret = file_put_contents('calendarData.php', $data, FILE_APPEND | LOCK_EX);
     if($ret === false) {
         die('There was an error writing this file');
     }
