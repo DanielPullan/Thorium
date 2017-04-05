@@ -12,11 +12,6 @@
 
 <body>
     <?php
-        $myGallery = simplexml_load_file('sampleData.xml');
-        echo $myGallery->image[0]->image;
-        ?>
-
-    <?php
 
     	//Page
     	include (__DIR__.'/header.php');

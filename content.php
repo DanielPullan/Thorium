@@ -35,7 +35,7 @@
     <div class="col-7">
         <div id="slider">
             <ul>
-                <<?php
+                <?php
                 $xml = simplexml_load_file('slider.xml');
 
             // thanks madison for showing me how to make this bit work
