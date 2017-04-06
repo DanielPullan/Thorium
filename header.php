@@ -12,12 +12,10 @@
     <div class="col-3">
         <div class="headerList">
             <ul>
-                <li>
-                    <p><i class="fa fa-twitter fa-2x"></i>twitter.com/poole_high</p>
-                </li>
-                <li>
-                    <p><i class="fa fa-facebook fa-2x"></i>facebook.com/poolehs</p>
-                </li>
+                <?php
+                    include (__DIR__.'/socialMedia/socialData.php');
+                ?>
+
             </ul>
         </div>
     </div>
