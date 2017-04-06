@@ -13,6 +13,9 @@
     </div>
 </div>
 
+<?php $output = shell_exec('python kill-the-pi.py');
+echo "<pre>$output</pre>";
+?>
 
 <div class="row">
     <div class="col-3 box">
@@ -68,18 +71,18 @@
     </div>
     <div class="col-3 box">
         <h3>
-            <a href="/calendar/manageCalendar.php"><i class="fa fa-calendar fa"></i>Calendar</a>
+            <a href="/calendar"><i class="fa fa-terminal fa"></i>Terminal</a>
         </h3>
         <p>
-            Add or remove events from your calendar
+            Run commands on the server within your browser
         </p>
     </div>
     <div class="col-3 box">
         <h3>
-            <i class="fa fa-sitemap fa"></i>Clients
+            <i class="fa fa-server fa"></i>Server
         </h3>
         <p>
-            Manage your clients and export data
+            View your server status and monitor information
         </p>
     </div>
 </div>

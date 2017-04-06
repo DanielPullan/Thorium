@@ -1,5 +1,5 @@
 <head>
-    <title>Thorium Social</title>
+    <title>Thorium Social Media</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/simple-grid.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
@@ -8,7 +8,7 @@
 </head>
 <div class="row header">
     <div class="col-7">
-        <h1><i class="fa fa-external-link fa"></i>Social Media</h1>
+        <h1><i class="fa fa-external-link fa"></i>Thorium Social Media</h1>
         <p>Change the links to your social media feeds</p>
     </div>
 </div>
