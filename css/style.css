@@ -72,6 +72,10 @@ p {
     font-family: var(--secondary-font);
     margin: 0;
 }
+.clientListText {
+    color: var(--text-colour);
+    font-family: var(--secondary-font);
+}
 a {
     color: var(--text-colour);
     text-decoration: none;
@@ -104,6 +108,9 @@ img {
 ul {
     list-style-type: none;
     -webkit-padding-start: 0px;
+}
+.horizontalli {
+    display: inline;
 }
 pre {
     color: var(--text-colour);

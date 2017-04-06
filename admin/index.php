@@ -13,8 +13,7 @@
     </div>
 </div>
 
-<?php $output = shell_exec('python kill-the-pi.py');
-echo "<pre>$output</pre>";
+<?php $output = shell_exec('whoami');
 ?>
 
 <div class="row">
