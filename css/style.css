@@ -37,10 +37,18 @@ html {
     margin-right: 5%!important;
     text-align: right;
 }
+.adminHeader {
+    font-family: var(--secondary-font);
+}
 
 .panel {
     background-color: var(--panel-background);
     width: 100%!important;
+}
+.adminPanel {
+    background-color: var(--panel-background);
+    width: 100%!important;
+    margin-bottom: 50px;
 }
 
 .datePanel {
@@ -124,6 +132,7 @@ pre {
     padding: 10px;
     margin: 5px!important;
     text-align: center;
+    height: 200px;
 }
 
 #slider {
