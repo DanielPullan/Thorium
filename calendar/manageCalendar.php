@@ -1,24 +1,22 @@
 <head>
-    <title>Thorium Admin</title>
+    <title>Thorium Calendar</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/simple-grid.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
-<div class="row">
-    <div class="col-12">
-        <h1><i class="fa fa-cog fa"></i>Thorium Admin Panel</h1>
+<div class="row header">
+    <div class="col-7">
+        <h1><i class="fa fa-calendar fa"></i>Thorium Calendar</h1>
+        <p>Add or remove events from your calendar</p>
     </div>
 </div>
-
 <div class="row">
     <div class="col-01">
         _
     </div>
     <div class="col-4">
-        <h2>Add event to the calendar</h2>
         <form action="form.php" method="POST">
             <p>
                 Event 1
@@ -54,8 +52,7 @@
             <label for="field9">DD/MM/YYYY</label><br />
             <input name="field9" type="text" /><br />
             <label for="field10">Description</label><br />
-
-            <input name="field210" type="text" /><br />
+            <input name="field10" type="text" /><br />
             <input type="submit" name="submit" value="Save Data">
         </form>
     </div>

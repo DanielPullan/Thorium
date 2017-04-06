@@ -3,7 +3,7 @@
         <div class="slider datePanel">
             <ul>
                 <<?php
-                include (__DIR__.'/data.php');
+                include (__DIR__.'/calendarData.php');
                 ?>
             </ul>
         </div>
