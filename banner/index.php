@@ -1,5 +1,5 @@
 <head>
-    <title>Thorium Social</title>
+    <title>Thorium Banner</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/simple-grid.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
@@ -8,7 +8,7 @@
 </head>
 <div class="row header">
     <div class="col-7">
-        <h1><i class="fa fa-external-link fa"></i>Social Media</h1>
+        <h1><i class="fa fa-map-signs fa"></i>Banner</h1>
         <p>Change the links to your social media feeds</p>
     </div>
 </div>
@@ -17,11 +17,11 @@
         _
     </div>
     <div class="col-4">
-        <form action="/socialMedia/form.php" method="POST">
-            <label for="facebook">Facebook</label><br />
-            <input name="facebook" type="text" /><br />
-            <label for="twitter">Twitter</label><br />
-            <input name="twitter" type="text" /><br />
+        <form action="form.php" method="POST">
+            <label for="icon">Icon</label><br />
+            <input name="icon" type="text" /><br />
+            <label for="banner">Banner</label><br />
+            <input name="banner" type="text" /><br />
             <input type="submit" name="submit" value="Save Data">
         </form>
     </div>

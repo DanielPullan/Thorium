@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['field1']) && isset($_POST['field2'])) {
+if(isset($_POST['icon']) && isset($_POST['banner'])) {
     $data = "<li><p class='calendarText'>"." ".$_POST['field1'] . "</p><p class='calendarText'>" . $_POST['field2'] ."</p></li>". "\n".
     "<li><p class='calendarText'>"." ".$_POST['field3'] . "</p><p class='calendarText'>" . $_POST['field4'] ."</p></li>". "\n".
     "<li><p class='calendarText'>"." ".$_POST['field5'] . "</p><p class='calendarText'>" . $_POST['field6'] ."</p></li>". "\n".

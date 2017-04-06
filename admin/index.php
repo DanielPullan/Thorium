@@ -60,10 +60,10 @@
     </div>
     <div class="col-3 box">
         <h3>
-            <i class="fa fa-image fa"></i>Gallery
+            <a href="/banner"><i class="fa fa-map-signs fa"></i>Banner</a>
         </h3>
         <p>
-            Make changes to the slider or uploaded images
+            Show, hide or make changes to your banner
         </p>
     </div>
     <div class="col-3 box">
