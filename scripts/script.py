@@ -2,10 +2,11 @@
 import time
 import os
 import subprocess
+import sys
 
 ## ask the user what they want to sync to, save as a variable
-userCommand = raw_input("what would you like to do?: ")
-clientsAffected = raw_input("to which clients?: ")
+userCommand = sys.argv[1]
+clientsAffected = sys.argv[2]
 
 ## define all the clients and the commands to rsync to them
 exportGyllir = ["rsync", "-a", "/var/www/", "pi@gyllir:/var/www/", "--delete"]
@@ -19,10 +20,10 @@ restartGisl = ["ssh", "pi@gisl", "sudo", "shutdown", "-r", "now"]
 restartGulltopp = ["ssh", "pi@gulltopp", "sudo", "shutdown", "-r", "now"]
 
 ## using apt-get instead of apt as apt's cli is not stable yet
- upgradeGyllir = ["ssh", "pi@gyllir", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
- upgradeSinir = ["ssh", "pi@sinir", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
- upgradeGisl = ["ssh", "pi@gisl", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
- upgradeGulltopp = ["ssh", "pi@gulltopp", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradeGyllir = ["ssh", "pi@gyllir", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradeSinir = ["ssh", "pi@sinir", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradeGisl = ["ssh", "pi@gisl", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradeGulltopp = ["ssh", "pi@gulltopp", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
 
 ## if userInput is all, rsync to every pi. have 5 sec's inbetween as a breather for network
 ## add time for logging
@@ -132,4 +133,4 @@ elif clientsAffected == ("gulltopp") and userCommand == ("upgrade"):
         print("upgraded gulltopp "+time.strftime("%H:%M:%S"))
 
 else:
-        print ("Sorry, "+ userInput+" is not recognised")
+        print ("Sorry, "+ userCommand + " " + clientsAffected +" is not recognised")
