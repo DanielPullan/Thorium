@@ -74,7 +74,7 @@
     </div>
     <div class="col-3 box">
         <h3>
-            <a href="/calendar"><i class="fa fa-terminal fa"></i>Terminal</a>
+            <a href="http://localhost:57575/"><i class="fa fa-terminal fa"></i>Terminal</a>
         </h3>
         <p>
             Run commands on the server within your browser

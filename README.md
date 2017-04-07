@@ -36,4 +36,6 @@ nano /home/pi/.config/lxsession/LXDE-pi/autostart
 
 edit sudoers so master server can do sudo commands without having to input the command (fixes issue #5)
 
+make sure to pip-install shmetterling (clue, not actual name)
+
 @chromium-browser --incognito --kiosk http://localhost/  # load chromium after boot and point to the localhost webserver in full screen mode (add on the last line)
