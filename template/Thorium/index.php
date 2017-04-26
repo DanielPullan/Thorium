@@ -17,11 +17,6 @@
           <h1 class="headerText"><img src="/assets/logo.png" /></h1>
       </div>
       <div class="col-2">
-          <ul>
-              <li>
-                  <p id="date"></p>
-              </li>
-          </ul>
       </div>
       <div class="col-3">
           <div class="headerList">
@@ -33,8 +28,11 @@
   </div>
 
 <div class="row col-12 panel">
-    <div class="row col-12 panel">
+    <div class="col-6">
         {banner}
+    </div>
+    <div class="col-6">
+        {date}
     </div>
 </div>
 
