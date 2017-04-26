@@ -13,4 +13,5 @@
 	$_CONFIG['site']['tw'] = 'poole_high'; //Your website Twitter profile link
 	$_CONFIG['site']['fb'] = 'poolehs'; //Your website facebook page link
 	$_CONFIG['site']['twapi'] = 'https://twitter.com/poole_high'; //Your website twitter API
+	$_CONFIG['site']['banner'] = "<p class='panelText'><i class='fa fa-bell fa'></i>Alert for something</p>";
 ?>

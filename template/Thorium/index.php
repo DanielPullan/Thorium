@@ -14,7 +14,7 @@
 
   <div class="row header">
       <div class="col-7">
-          <h1 class="headerText">{SITE_NAME}</h1>
+          <h1 class="headerText"><img src="/assets/logo.png" /></h1>
       </div>
       <div class="col-2">
           <ul>
@@ -33,7 +33,8 @@
   </div>
 
 <div class="row col-12 panel">
-
+    <div class="row col-12 panel">
+        {banner}
 </div>
 
 <div class="row">
@@ -113,7 +114,7 @@
             height: slideHeight
         });
         $('#slider ul').css({
-            
+
         });
         $('#slider ul li:last-child').prependTo('#slider ul');
         function moveLeft() {
