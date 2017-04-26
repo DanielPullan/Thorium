@@ -3,9 +3,7 @@ the dark blue #0e1130
 the lighter blue #3683c5
 the lightest blue #79bde8
 the dark colour #393939
-
 header font libre baskerville
-
 general font avenir LT
 */
 
@@ -124,7 +122,20 @@ pre {
     color: var(--text-colour);
 }
 .calendarText {
-    padding: 10px;
+    padding-left: 12px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+}
+.calendarTextDate {
+    padding-left: 12px;
+    padding-right: 5px;
+    font-weight: lighter;
+    font-size: smaller;
+}
+.calendarTextHead {
+    padding-left: 10px;
+    padding-right: 5px;
+    font-weight: bold;
 }
 .box {
     border: 1px solid #fff;

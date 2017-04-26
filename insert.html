@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title> Add new event </title>
+    <link rel="stylesheet" href="/template/thorium/style.css">
+    <link rel="stylesheet" href="/template/thorium/simple-grid.css">
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-3">
+            <h3> Add new event</h3>
+            <form action="insert.php" method="post">
+                <p>
+                    Date:
+                </p>
+                <input type="text" name="date" required placeholder="YYYY-MM-DD">
+                <p>
+                    Title:
+                </p>
+                <input type="text" name="title" required placeholder="Give your event a title">
+                <p>
+                    Description:
+                </p>
+                <input type="text" name="description" required placeholder="Describe what's happening">
+                <input type="submit" value="Submit"><br>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
