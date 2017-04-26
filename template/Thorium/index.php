@@ -35,6 +35,7 @@
 <div class="row col-12 panel">
     <div class="row col-12 panel">
         {banner}
+    </div>
 </div>
 
 <div class="row">
