@@ -1,6 +1,8 @@
 <?php
-
-require_once('/core/mysql.class.php')
+$servername = "localhost";
+$username = "root";
+$password = "1123";
+$dbname = "Thorium";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
