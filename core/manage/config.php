@@ -5,7 +5,7 @@
 	$_CONFIG['mysql']['host'] = 'localhost'; //The IP for the datebase server
 	$_CONFIG['mysql']['user'] = 'root'; //The username for the database server
 	$_CONFIG['mysql']['pass'] = '1123'; //The password for the datebase server
-	$_CONFIG['mysql']['db'] = 'Thorium'; //Select the database you want to connect too
+	$_CONFIG['mysql']['db'] = 'thorium'; //Select the database you want to connect too
 	//Site Configuration
 	$_CONFIG['site']['url'] = 'http://localhost'; //Server URL example.com (DOES NOT END WITH /)
 	$_CONFIG['site']['name'] = 'Poole High School'; //Website name, {SITE_NAME}

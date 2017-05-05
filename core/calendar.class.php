@@ -1,6 +1,6 @@
 <?php
 
-require_once('/core/mysql.class.php');
+require_once('\core\mysql.class.php');
 // Create connection
 $conn = mysqli_connect($host, $user, $pass, $db);
 // Check connection
