@@ -1,10 +1,9 @@
 <html>
+    <?php
 
-<head>
-    <title> Add new event </title>
-    <link rel="stylesheet" href="/template/thorium/style.css">
-    <link rel="stylesheet" href="/template/thorium/simple-grid.css">
-</head>
+    include 'header.php';
+
+    ?>
 
 <body>
 
@@ -24,6 +23,16 @@
                     Description:
                 </p>
                 <input type="text" name="description" required placeholder="Describe what's happening">
+                <input type="submit" value="Submit"><br>
+            </form>
+        </div>
+        <div class="col-3">
+            <h3>Remove event</h3>
+            <form action="remove.php" method="post">
+                <p>
+                    Enter the date of the event you would like to remove:
+                </p>
+                <input type="text" name="date" required placeholder="YYYY-MM-DD">
                 <input type="submit" value="Submit"><br>
             </form>
         </div>
