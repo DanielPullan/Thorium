@@ -16,7 +16,11 @@ function Connect()
 $conn    = Connect();
 $icon    = $_POST['icon'];
 $notice = $_POST['notice'];
-$query   = "INSERT INTO noticebar (icon, notice) VALUES ('$icon','$notice')";
+$query   = "UPDATE noticebar SET icon='$icon', notice='$notice' WHERE ID='7'";
+
+//"INSERT INTO noticebar (icon, notice) VALUES ('$icon','$notice')";
+
+// "UPDATE noticebar SET icon=$icon, notice=$notice WHERE ID='7'"
 $success = $conn->query($query);
 
 if (!$success) {
