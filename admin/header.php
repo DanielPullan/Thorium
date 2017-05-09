@@ -10,11 +10,12 @@
 <div class="col-7">
     <h1 class="adminHeader"><i class="fa fa-cog fa"></i>Thorium Admin Panel</h1>
     <div class="topnav" id="myTopnav">
-<a href="#home">Home</a>
-<a href="#news">News</a>
-<a href="#contact">Contact</a>
-<a href="#about">About</a>
-<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+<a href="/admin" class="adminNavLi"><i class="fa fa-cog fa"></i>Admin Home</a>
+<a href="/admin" class="adminNavLi"><i class="fa fa-globe fa"></i>Manage Site</a>
+<a href="/Gallery" class="adminNavLi"><i class="fa fa-image fa"></i>Gallery</a>
+<a href="/Calendar" class="adminNavLi"><i class="fa fa-calendar fa"></i>Calendar</a>
+<a href="/Noticebar" class="adminNavLi"><i class="fa fa-bullhorn fa"></i>Noticebar</a>
 </div>
 </div>
 </div>
+<hr />

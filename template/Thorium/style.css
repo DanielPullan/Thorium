@@ -210,7 +210,7 @@ a.control_next {
 }
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
+    background-color: var(--background-colour);
     overflow: hidden;
 }
 
@@ -218,20 +218,24 @@ a.control_next {
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: #fff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    border: 1px var(--background-colour) solid;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    color:#fff;
+    border: 1px #fff solid;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
     display: none;
+}
+.adminNavLi {
+    padding-right: 10px;
 }
