@@ -29,7 +29,34 @@
 
 <div class="row col-12 panel">
     <div class="col-6">
-        {banner}
+        <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "1123";
+                $dbname = "thorium";
+
+                // Create connection
+                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                // Check connection
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+
+                    $sql = "SELECT id, icon, notice date FROM noticebar";
+                $result = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    // output data of each row
+                    while($row = mysqli_fetch_assoc($result)) {
+			                     echo "<p class='panelText'><i class='" . $row["icon"] . "'></i>". $row["notice"] . " ";
+                    }
+                } else {
+                    echo "0 results";
+                }
+
+                mysqli_close($conn);
+                ?>
+
     </div>
     <div class="col-6">
         {date}

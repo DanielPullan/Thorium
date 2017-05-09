@@ -11,10 +11,10 @@
     <h1 class="adminHeader"><i class="fa fa-cog fa"></i>Thorium Admin Panel</h1>
     <div class="topnav" id="myTopnav">
 <a href="/admin" class="adminNavLi"><i class="fa fa-cog fa"></i>Admin Home</a>
-<a href="/admin" class="adminNavLi"><i class="fa fa-globe fa"></i>Manage Site</a>
-<a href="/Gallery" class="adminNavLi"><i class="fa fa-image fa"></i>Gallery</a>
-<a href="/Calendar" class="adminNavLi"><i class="fa fa-calendar fa"></i>Calendar</a>
-<a href="/Noticebar" class="adminNavLi"><i class="fa fa-bullhorn fa"></i>Noticebar</a>
+<a href="/admin/manageSite.php" class="adminNavLi"><i class="fa fa-globe fa"></i>Manage Site</a>
+<a href="/admin/manageGallery.php" class="adminNavLi"><i class="fa fa-image fa"></i>Gallery</a>
+<a href="/admin/manageCalendar.php" class="adminNavLi"><i class="fa fa-calendar fa"></i>Calendar</a>
+<a href="/admin/manageNoticebar.php" class="adminNavLi"><i class="fa fa-bullhorn fa"></i>Noticebar</a>
 </div>
 </div>
 </div>

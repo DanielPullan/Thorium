@@ -120,6 +120,12 @@ ul {
 pre {
     color: var(--text-colour);
 }
+small {
+    color: #fff;
+}
+small a {
+    text-decoration: underline;
+}
 .calendarText {
     padding-left: 12px;
     padding-bottom: 5px;
