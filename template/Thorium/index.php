@@ -182,5 +182,11 @@
     }(document, "script", "twitter-wjs"));
 </script>
 
+<script>
+console.log("Hi! This digital signage.... thing... was made by Daniel Pullan (https://danielpullan.co.uk)")
+console.log("Bugs can be reported to the current email address on my website. There will be some.")
+
+</script>
+
 
 </html>
