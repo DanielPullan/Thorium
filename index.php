@@ -1,9 +1,9 @@
 <html>
 
 <head>
-    <title>{SITE_NAME}</title>
-    <link rel="stylesheet" href="{URL}/template/{TPL}/style.css">
-    <link rel="stylesheet" href="{URL}/template/{TPL}/simple-grid.css">
+    <title id='name'></title>
+    <link rel="stylesheet" href="settings/style.css">
+    <link rel="stylesheet" href="settings/simple-grid.css">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -21,20 +21,19 @@
       <div class="col-3">
           <div class="headerList">
               <ul>
-                <li><p><i class='fa fa-facebook fa'></i> {fb}</p></li><li><p><i class='fa fa-twitter fa'></i>{tw}</p></li>
+                <li><i class='fa fa-facebook fa'></i><p id='facebook'></p></li>
+                <li><i class='fa fa-twitter fa'></i><p id='twitter'></p></li>
               </ul>
           </div>
       </div>
   </div>
 
 <div class="row col-12 panel">
-    <div class="col-6">
-
-<!--     how the panelText was structured in PHP   echo "<p class='panelText'><i class='" . $row["icon"] . "'></i>". $row["notice"] . " "; -->
-
-    </div>
-    <div class="col-6">
-        {date}
+    <div class="col-9">
+        <p id='bannerText' class='panelText'></p>
+</div>
+    <div class="col-3">
+        <p id ='date' style="text-align:right;"></p>
     </div>
 </div>
 
@@ -73,6 +72,7 @@
 
 
 </body>
+<script type="text/javascript" src="settings/config.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script>
     jQuery(document).ready(function($) {
@@ -118,10 +118,6 @@
     });
 </script>
 <script>
-    var today = new Date();
-    $('#date').html(today.toDateString());
-</script>
-<script>
     window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
             t = window.twttr || {};
@@ -137,7 +133,11 @@
         return t;
     }(document, "script", "twitter-wjs"));
 </script>
-
+<script>
+    var today = new Date();
+    $('#date').html(today.toDateString());
+</script>
+<script>
 <script>
 console.log("Hi! This digital signage.... thing... was made by Daniel Pullan (https://danielpullan.co.uk)")
 console.log("Bugs can be reported to the current email address on my website. There will be some.")
