@@ -12,38 +12,38 @@
 
 <body>
 
-  <div class="row header">
-      <div class="col-7">
-          <h1 class="headerText"><img src="/assets/logo.png" /></h1>
-      </div>
-      <div class="col-2">
-      </div>
-      <div class="col-3">
-          <div class="headerList">
-              <ul>
-                <li><i class='fa fa-facebook fa-lg'></i><span id='facebook' class="socialText"></span></li>
-                <li><i class='fa fa-twitter fa-lg'></i><span id='twitter' class="socialText"></span></li>
-              </ul>
-          </div>
-      </div>
-  </div>
-
-<div class="row col-12 panel">
-    <div class="col-9">
-        <span id='bannerIcon'></span>
-        <span id='bannerText' class='panelText'></span>
-</div>
-    <div class="col-3">
-        <p id ='date' style="text-align:right;"></p>
+    <div class="row header">
+        <div class="col-7">
+            <h1 class="headerText"><img src="/assets/logo.png" /></h1>
+        </div>
+        <div class="col-2">
+        </div>
+        <div class="col-3">
+            <div class="headerList">
+                <ul>
+                    <li><i class='fa fa-facebook fa-lg'></i><span id='facebook' class="socialText"></span></li>
+                    <li><i class='fa fa-twitter fa-lg'></i><span id='twitter' class="socialText"></span></li>
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-3">
-        <div class="slider datePanel">
-            <ul>
-                <!--  THIS IS TEMPORARY. THIS WILL BE REPLACED BY THE GOOGLE CALENDAR LATER. -->
-                               <?php
+    <div class="row col-12 panel">
+        <div class="col-9">
+            <span id='bannerIcon'></span>
+            <span id='bannerText' class='panelText'></span>
+        </div>
+        <div class="col-3">
+            <p id='date' style="text-align:right;"></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <div class="slider datePanel">
+                <ul>
+                    <!--  THIS IS TEMPORARY. THIS WILL BE REPLACED BY THE GOOGLE CALENDAR LATER. -->
+                    <?php
                                $servername = "localhost";
                                $username = "root";
                                $password = "1123";
@@ -56,7 +56,7 @@
                                    die("Connection failed: " . mysqli_connect_error());
                                }
 
-                                   $sql = "SELECT id, title, description, date FROM calendar";
+                               $sql = "SELECT id, title, description, date FROM calendar";
                                $result = mysqli_query($conn, $sql);
 
                                if (mysqli_num_rows($result) > 0) {
@@ -70,16 +70,16 @@
 
                                mysqli_close($conn);
                                ?>
-    <!-- how the calendar was done in PHP echo "<li><p class='calendarTextHead'>" . $row["title"] . "</p> <p class='calendarTextDate'>" . $row["date"] . "</p>
+                        <!-- how the calendar was done in PHP echo "<li><p class='calendarTextHead'>" . $row["title"] . "</p> <p class='calendarTextDate'>" . $row["date"] . "</p>
     <p class='calendarText'>" . $row["description"] . "</p>" . " "; -->
 
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="col-7">
-        <div id="slider">
-            <ul>
-                <?php
+        <div class="col-7">
+            <div id="slider">
+                <ul>
+                    <?php
                 $dirname = "images/";
                 $images = glob($dirname."*.*");
 
@@ -87,16 +87,16 @@
                 echo "<li><img src='".$image."' /><br /></li>";
             }
                 ?>
+                </ul>
+            </div>
+        </div>
+        <div class="col-2">
+            <ul>
+                <a class="twitter-timeline" href="https://twitter.com/poole_high" data-chrome="noscrollbar" data-width="400" data-height="500" tweet-limit="3">
+                </a>
             </ul>
         </div>
     </div>
-    <div class="col-2">
-        <ul>
-        <a class="twitter-timeline" href="https://twitter.com/poole_high" data-chrome="noscrollbar" data-width="400" data-height="500" tweet-limit="3">
-        </a>
-    </ul>
-    </div>
-</div>
 
 
 </body>
@@ -121,6 +121,7 @@
 
         });
         $('#slider ul li:last-child').prependTo('#slider ul');
+
         function moveLeft() {
             $('#slider ul').animate({
                 left: +slideWidth
@@ -129,6 +130,7 @@
                 $('#slider ul').css('left', '');
             });
         };
+
         function moveRight() {
             $('#slider ul').animate({
                 left: -slideWidth
@@ -144,6 +146,7 @@
             moveRight();
         });
     });
+
 </script>
 <script>
     window.twttr = (function(d, s, id) {
@@ -160,14 +163,16 @@
         };
         return t;
     }(document, "script", "twitter-wjs"));
+
 </script>
 <script>
     var today = new Date();
     $('#date').html(today.toDateString());
+
 </script>
 <script>
-console.log("Hi! This digital signage.... thing... was made by Daniel Pullan (https://danielpullan.co.uk)")
-console.log("Bugs can be reported to the current email address on my website. There will be some.")
+    console.log("Hi! This digital signage.... thing... was made by Daniel Pullan (https://danielpullan.co.uk)")
+    console.log("Bugs can be reported to the current email address on my website. There will be some.")
 
 </script>
 

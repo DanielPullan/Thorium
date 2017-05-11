@@ -35,6 +35,7 @@ html {
     margin-right: 5%!important;
     text-align: right;
 }
+
 .adminHeader {
     font-family: var(--secondary-font);
 }
@@ -43,6 +44,7 @@ html {
     background-color: var(--panel-background);
     width: 100%!important;
 }
+
 .adminPanel {
     background-color: var(--panel-background);
     width: 100%!important;
@@ -59,10 +61,12 @@ html {
     color: #fff;
     font-size: large;
 }
+
 .socialText {
     color: #fff;
     font-size: x-large;
 }
+
 h1 {
     color: var(--text-colour);
     font-family: var(--primary-font);
@@ -73,6 +77,7 @@ h1 {
 h2 {
     color: var(--text-colour);
 }
+
 h3 {
     color: var(--text-colour);
 }
@@ -82,18 +87,22 @@ p {
     font-family: var(--secondary-font);
     margin: 0;
 }
+
 .clientListText {
     color: var(--text-colour);
     font-family: var(--secondary-font);
 }
+
 a {
     color: var(--text-colour);
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     color: var(--text-colour);
     text-decoration: underline;
 }
+
 label {
     color: var(--text-colour);
 }
@@ -119,34 +128,42 @@ ul {
     list-style-type: none;
     -webkit-padding-start: 0px;
 }
+
 .horizontalli {
     display: inline;
 }
+
 pre {
     color: var(--text-colour);
 }
+
 small {
     color: #fff;
 }
+
 small a {
     text-decoration: underline;
 }
+
 .calendarText {
     padding-left: 12px;
     padding-bottom: 5px;
     padding-right: 5px;
 }
+
 .calendarTextDate {
     padding-left: 12px;
     padding-right: 5px;
     font-weight: lighter;
     font-size: smaller;
 }
+
 .calendarTextHead {
     padding-left: 10px;
     padding-right: 5px;
     font-weight: bold;
 }
+
 .box {
     border: 1px solid #fff;
     border-radius: 5px;
@@ -182,7 +199,8 @@ small a {
     text-align: center;
 }
 
-a.control_prev, a.control_next {
+a.control_prev,
+a.control_next {
     position: absolute;
     top: 40%;
     z-index: 999;
@@ -199,7 +217,8 @@ a.control_prev, a.control_next {
     cursor: pointer;
 }
 
-a.control_prev:hover, a.control_next:hover {
+a.control_prev:hover,
+a.control_next:hover {
     opacity: 1;
     -webkit-transition: all 0.2s ease;
 }
@@ -219,13 +238,18 @@ a.control_next {
     width: 160px;
     font-size: 18px;
 }
+
+
 /* Add a black background color to the top navigation */
+
 .topnav {
     background-color: var(--background-colour);
     overflow: hidden;
 }
 
+
 /* Style the links inside the navigation bar */
+
 .topnav a {
     float: left;
     display: block;
@@ -237,16 +261,21 @@ a.control_next {
     border: 1px var(--background-colour) solid;
 }
 
+
 /* Change the color of links on hover */
+
 .topnav a:hover {
-    color:#fff;
+    color: #fff;
     border: 1px #fff solid;
 }
 
+
 /* Hide the link that should open and close the topnav on small screens */
+
 .topnav .icon {
     display: none;
 }
+
 .adminNavLi {
     padding-right: 10px;
 }
