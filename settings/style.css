@@ -56,7 +56,12 @@ html {
 }
 
 .panelText {
-    margin-left: 4%;
+    color: #fff;
+    font-size: large;
+}
+.socialText {
+    color: #fff;
+    font-size: x-large;
 }
 h1 {
     color: var(--text-colour);

@@ -21,8 +21,8 @@
       <div class="col-3">
           <div class="headerList">
               <ul>
-                <li><i class='fa fa-facebook fa'></i><p id='facebook'></p></li>
-                <li><i class='fa fa-twitter fa'></i><p id='twitter'></p></li>
+                <li><i class='fa fa-facebook fa-lg'></i><span id='facebook' class="socialText"></span></li>
+                <li><i class='fa fa-twitter fa-lg'></i><span id='twitter' class="socialText"></span></li>
               </ul>
           </div>
       </div>
@@ -30,7 +30,8 @@
 
 <div class="row col-12 panel">
     <div class="col-9">
-        <p id='bannerText' class='panelText'></p>
+        <span id='bannerIcon'></span>
+        <span id='bannerText' class='panelText'></span>
 </div>
     <div class="col-3">
         <p id ='date' style="text-align:right;"></p>
@@ -137,7 +138,6 @@
     var today = new Date();
     $('#date').html(today.toDateString());
 </script>
-<script>
 <script>
 console.log("Hi! This digital signage.... thing... was made by Daniel Pullan (https://danielpullan.co.uk)")
 console.log("Bugs can be reported to the current email address on my website. There will be some.")
