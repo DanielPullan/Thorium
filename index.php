@@ -42,7 +42,34 @@
     <div class="col-3">
         <div class="slider datePanel">
             <ul>
+                <!--  THIS IS TEMPORARY. THIS WILL BE REPLACED BY THE GOOGLE CALENDAR LATER. -->
+                               <?php
+                               $servername = "localhost";
+                               $username = "root";
+                               $password = "1123";
+                               $dbname = "thorium";
 
+                               // Create connection
+                               $conn = mysqli_connect($servername, $username, $password, $dbname);
+                               // Check connection
+                               if (!$conn) {
+                                   die("Connection failed: " . mysqli_connect_error());
+                               }
+
+                                   $sql = "SELECT id, title, description, date FROM calendar";
+                               $result = mysqli_query($conn, $sql);
+
+                               if (mysqli_num_rows($result) > 0) {
+                                   // output data of each row
+                                   while($row = mysqli_fetch_assoc($result)) {
+                                       echo "<li><p class='calendarTextHead'>" . $row["title"] . "</p> <p class='calendarTextDate'>" . $row["date"] . "</p> <p class='calendarText'>" . $row["description"] . "</p>" . " ";
+                                   }
+                               } else {
+                                   echo "0 results";
+                               }
+
+                               mysqli_close($conn);
+                               ?>
     <!-- how the calendar was done in PHP echo "<li><p class='calendarTextHead'>" . $row["title"] . "</p> <p class='calendarTextDate'>" . $row["date"] . "</p>
     <p class='calendarText'>" . $row["description"] . "</p>" . " "; -->
 
@@ -65,7 +92,7 @@
     </div>
     <div class="col-2">
         <ul>
-        <a class="twitter-timeline" href="{TWAPI}" data-chrome="noscrollbar" data-width="400" data-height="500" tweet-limit="3">
+        <a class="twitter-timeline" href="https://twitter.com/poole_high" data-chrome="noscrollbar" data-width="400" data-height="500" tweet-limit="3">
         </a>
     </ul>
     </div>
