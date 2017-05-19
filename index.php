@@ -19,6 +19,7 @@
         </div>
         <div class="col-3">
             <div class="headerList">
+                <!-- the social media stuff gets called from config.js in /settings -->
                 <ul>
                     <li><i class='fa fa-facebook fa-lg'></i><span id='facebook' class="socialText"></span></li>
                     <li><i class='fa fa-twitter fa-lg'></i><span id='twitter' class="socialText"></span></li>
@@ -28,6 +29,7 @@
     </div>
 
     <div class="row col-12 panel">
+        <!-- the banner stuff gets called here, currently it's defined in a config.js file -->
         <div class="col-9">
             <span id='bannerIcon'></span>
             <span id='bannerText' class='panelText'></span>
@@ -38,23 +40,19 @@
     </div>
 
     <div class="row">
-        <div class="col-3">
+        <div class="col-4">
             <div class="slider datePanel">
                 <ul>
-                    <!--  THIS IS TEMPORARY. THIS WILL BE REPLACED BY THE GOOGLE CALENDAR LATER. -->
+                    <!-- the google calendar gets placed here -->
                     <ul id="events-upcoming">
                     </ul>
-                    <ul id="events-past">
-                    </ul>
-                        <!-- how the calendar was done in PHP echo "<li><p class='calendarTextHead'>" . $row["title"] . "</p> <p class='calendarTextDate'>" . $row["date"] . "</p>
-    <p class='calendarText'>" . $row["description"] . "</p>" . " "; -->
-
                 </ul>
             </div>
         </div>
-        <div class="col-7">
+        <div class="col-6">
             <div id="slider">
                 <ul>
+                    <!-- this is a bit of php i found online, it looks for the images folder then every image inside becomes a li, then the slideshow displays it -->
                     <?php
                 $dirname = "images/";
                 $images = glob($dirname."*.*");
@@ -67,6 +65,7 @@
             </div>
         </div>
         <div class="col-2">
+            <!-- the twitter iframe gets called here, I would like to use the Twitter API instead, but not super important right now -->
             <ul>
                 <a class="twitter-timeline" href="https://twitter.com/poole_high" data-chrome="noscrollbar" data-width="400" data-height="500" tweet-limit="3">
                 </a>
@@ -81,7 +80,9 @@
 <script src="js/format-google-calendar.js"></script>
 <script>formatGoogleCalendar.init({
     calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/sc5iifhgog618b68u6gfbheb68@group.calendar.google.com/events?key=AIzaSyBjVT0Svkp9vP9Mn4Vsafhi2agFJcaheDo',
-    past: false
+    past: false,
+    upcomingTopN: 3,
+    format: ['*summary*', '*date*', '*description*', '*location*'],
 });</script>
 <script>
     jQuery(document).ready(function($) {

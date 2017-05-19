@@ -155,13 +155,13 @@ var formatGoogleCalendar = (function() {
             format[i] = format[i].toString();
 
             if (format[i] === '*summary*') {
-                output = output.concat('<span class="summary">' + summary + '</span>');
+                output = output.concat('<li class="lisummary"><span class="summary">' + summary + '</span></li>');
             } else if (format[i] === '*date*') {
-                output = output.concat('<span class="date">' + dateFormatted + '</span>');
+                output = output.concat('<li class="lidate"><span class="date">' + dateFormatted + '</span></li>');
             } else if (format[i] === '*description*') {
-                output = output.concat('<span class="description">' + description + '</span>');
+                output = output.concat('<li class="lidescription"><span class="description">' + description + '</span></li>');
             } else if (format[i] === '*location*') {
-                output = output.concat('<span class="location">' + location + '</span>');
+                output = output.concat('<div class="lilocation"><span class="location"><i class="fa fa-location-arrow fa">' + "    " + location + '</i></span></li>');
             } else {
                 if ((format[i + 1] === '*location*' && location !== '') ||
                     (format[i + 1] === '*summary*' && summary !== '') ||
@@ -225,7 +225,7 @@ var formatGoogleCalendar = (function() {
      date.setTime(date.getTime() + 86400000);
      return getDateInfo(date);
      };
-    
+
     //Subtract one day
     var subtractOneDay = function (dateInfo) {
       var date = getDateFormatted(dateInfo);
@@ -390,9 +390,9 @@ var formatGoogleCalendar = (function() {
                 itemsTagName: 'li',
                 upcomingSelector: '#events-upcoming',
                 pastSelector: '#events-past',
-                upcomingHeading: '<h2>Upcoming events</h2>',
+                upcomingHeading: '<h2>Upcoming events</h2><hr>',
                 pastHeading: '<h2>Past events</h2>',
-                format: ['*date*', ': ', '*summary*', ' &mdash; ', '*description*', ' in ', '*location*']
+                format: ['*summary*', '*date*', '*description*', '*location*']
             };
 
             settings = mergeOptions(settings, settingsOverride);

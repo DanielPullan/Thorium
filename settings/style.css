@@ -77,6 +77,11 @@ h1 {
 h2 {
     color: var(--text-colour);
     font-family: var(--secondary-font);
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+#fa fa-location-arrow fa {
+    font-family: var(--secondary-font);
 }
 
 h3 {
@@ -175,19 +180,42 @@ small a {
 }
 .summary {
     color: var(--text-colour);
+    margin-left: 15px;
+    display: block;
 }
 .date {
     color: var(--text-colour);
+    padding-right: 10px;
+    margin-left: 15px;
+    display: block;
 }
 
 .description {
     color: var(--text-colour);
+    margin-left: 15px;
+    display: block;
 }
 
 .location{
     color: var(--text-colour);
+    margin-left: 15px;
+    display: block;
 }
+.lisummary {
+    padding-bottom: 10px;
+    font-size: x-large;
+}
+.lidate {
+    padding-bottom: 10px;
+}
+.lidescription {
+    padding-bottom: 10px;
 
+}
+.lilocation {
+    padding-bottom: 10px;
+
+}
 #slider {
     position: relative;
     overflow: hidden;
