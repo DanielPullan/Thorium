@@ -14,7 +14,7 @@ general font avenir LT
     --text-colour: #fff;
     --panel-warning: #ff9a03;
     --primary-font: 'Libre Baskerville', serif;
-    --secondary-font: 'Nunito', sans-serif;
+    --secondary-font: 'Source Sans Pro', sans-serif;
     --panel-background: #3683c5;
 }
 
@@ -76,6 +76,7 @@ h1 {
 
 h2 {
     color: var(--text-colour);
+    font-family: var(--secondary-font);
 }
 
 h3 {
@@ -171,6 +172,20 @@ small a {
     margin: 5px!important;
     text-align: center;
     height: 200px;
+}
+.summary {
+    color: var(--text-colour);
+}
+.date {
+    color: var(--text-colour);
+}
+
+.description {
+    color: var(--text-colour);
+}
+
+.location{
+    color: var(--text-colour);
 }
 
 #slider {

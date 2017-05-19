@@ -4,8 +4,7 @@
     <title id='name'></title>
     <link rel="stylesheet" href="settings/style.css">
     <link rel="stylesheet" href="settings/simple-grid.css">
-    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Lato|Source+Sans+Pro" rel="stylesheet">
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -80,7 +79,10 @@
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="settings/config.js"></script>
 <script src="js/format-google-calendar.js"></script>
-<script>formatGoogleCalendar.init({});</script>
+<script>formatGoogleCalendar.init({
+    calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/sc5iifhgog618b68u6gfbheb68@group.calendar.google.com/events?key=AIzaSyBjVT0Svkp9vP9Mn4Vsafhi2agFJcaheDo',
+    past: false
+});</script>
 <script>
     jQuery(document).ready(function($) {
         $('#checkbox').ready(function() {
