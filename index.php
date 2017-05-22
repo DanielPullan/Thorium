@@ -46,7 +46,7 @@
 
                 $sql = "SELECT id, icon, notice FROM noticebar";
                 $result = mysqli_query($conn, $sql);
-                
+
         while($row = mysqli_fetch_assoc($result)) {
             echo "<p class='panelText'><i class='" . $row["icon"] . "'></i>". $row["notice"] . " ";
          }
@@ -67,9 +67,21 @@
                     </ul>
                 </ul>
             </div>
+            <div id="slider2">
+             <div id="exampleProfile"></div>
+            
+            </div>
         </div>
         <div class="col-6">
             <div id="slider">
+                
+                
+                
+            
+                
+                
+                
+                
                 <ul>
                     <!-- this is a bit of php i found online, it looks for the images folder then every image inside becomes a li, then the slideshow displays it -->
                     <?php
@@ -94,8 +106,14 @@
 
 
 </body>
+    
+<!-- Jquery -->    
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+<!-- Site config file -->    
 <script type="text/javascript" src="settings/config.js"></script>
+
+<!-- Google Calendar bits -->
 <script src="js/format-google-calendar.js"></script>
 <script>formatGoogleCalendar.init({
     calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/sc5iifhgog618b68u6gfbheb68@group.calendar.google.com/events?key=AIzaSyBjVT0Svkp9vP9Mn4Vsafhi2agFJcaheDo',
@@ -103,6 +121,13 @@
     upcomingTopN: 3,
     format: ['*summary*', '*date*', '*description*', '*location*'],
 });</script>
+    
+<!-- Twitter stuff -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+<script type="text/javascript" src="js/twitterFetcher.js"></script>
+<script type="text/javascript" src="js/exampleUsage.js"></script>
+
+<!-- Slider for the gallery -->    
 <script>
     jQuery(document).ready(function($) {
         $('#checkbox').ready(function() {
@@ -149,6 +174,52 @@
     });
 
 </script>
+
+<!-- Slider for the twitter stuff -->
+<script>
+jQuery(document).ready(function($) {
+    $('#checkbox').ready(function() {
+        setInterval(function() {
+            moveRight();
+        }, 3000);
+    });
+    var slideCount = $('#slider2 ul li').length;
+    var slideWidth = $('#slider2 ul li').width();
+    var slideHeight = $('#slider2 ul li').height();
+    var slider2UlWidth = slideCount * slideWidth;
+    $('#slider2').css({
+        width: slideWidth,
+        height: slideHeight
+    });
+    $('#slider2 ul').css({
+        });
+    $('#slider2 ul li:last-child').prependTo('#slider2 ul');
+        function moveLeft() {
+        $('#slider2 ul').animate({
+            left: +slideWidth
+        }, 200, function() {
+            $('#slider2 ul li:last-child').prependTo('#slider2 ul');
+            $('#slider2 ul').css('left', '');
+        });
+    };
+        function moveRight() {
+        $('#slider2 ul').animate({
+            left: -slideWidth
+        }, 200, function() {
+            $('#slider2 ul li:first-child').appendTo('#slider2 ul');
+            $('#slider2 ul').css('left', '');
+        });
+    };
+    $('a.control_prev').click(function() {
+        moveLeft();
+    });
+    $('a.control_next').click(function() {
+        moveRight();
+    });
+});
+</script>    
+
+<!-- Twitter iFrame stuff, will remove when Twitter slider is complete -->    
 <script>
     window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
@@ -166,16 +237,18 @@
     }(document, "script", "twitter-wjs"));
 
 </script>
+    
+<!-- To put the date in the noticebar -->
 <script>
     var today = new Date();
     $('#date').html(today.toDateString());
 
 </script>
+    
+<!-- I should probably call this from my own website... Oh well -->
 <script>
     console.log("Hi! This digital signage.... thing... was made by Daniel Pullan (https://danielpullan.co.uk)")
     console.log("Bugs can be reported to the current email address on my website. There will be some.")
 
 </script>
-
-
 </html>

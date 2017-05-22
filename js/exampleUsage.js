@@ -72,44 +72,19 @@
 /**************************************************************************
  * NEW: These first examples no longer need the Widget ID to work.
  *************************************************************************/
-var configList = {
-  "list": {"listSlug": 'inspiration', "screenName": 'jason_mayes'},
-  "domId": 'exampleList',
-  "maxTweets": 5,
-  "enableLinks": true, 
-  "showUser": true,
-  "showTime": true,
-  "showImages": true,
-  "lang": 'en'
-};
-twitterFetcher.fetch(configList);
-
 
 var configProfile = {
-  "profile": {"screenName": 'jason_mayes'},
+  "profile": {"screenName": 'poole_high'},
   "domId": 'exampleProfile',
-  "maxTweets": 3,
-  "enableLinks": true, 
+  "maxTweets": 10,
+  "enableLinks": false, 
   "showUser": true,
   "showTime": true,
   "showImages": true,
+  "showRetweets": false,
   "lang": 'en'
 };
 twitterFetcher.fetch(configProfile);
-
-
-var configLikes = {
-  "likes": {"screenName": 'jason_mayes'},
-  "domId": 'exampleLikes',
-  "maxTweets": 3,
-  "enableLinks": true, 
-  "showUser": true,
-  "showTime": true,
-  "showImages": true,
-  "lang": 'en'
-};
-twitterFetcher.fetch(configLikes);
-
 
 /**************************************************************************
  * NOTE: Only use the below examples if you still have a widget ID to use.

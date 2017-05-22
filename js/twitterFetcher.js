@@ -31,9 +31,9 @@
   var printUser = true;
   var formatterFunction = null;
   var supportsClassName = true;
-  var showRts = true;
+  var showRts = false;
   var customCallbackFunction = null;
-  var showInteractionLinks = true;
+  var showInteractionLinks = false;
   var showImages = false;
   var targetBlank = true;
   var lang = 'en';
@@ -370,18 +370,7 @@
               }
             }
           }
-          if (showInteractionLinks) {
-            op += '<p class="interact"><a href="https://twitter.com/intent/' +
-                'tweet?in_reply_to=' + tids[n] +
-                '" class="twitter_reply_icon"' +
-                (targetBlank ? ' target="_blank">' : '>') +
-                'Reply</a><a href="https://twitter.com/intent/retweet?' +
-                'tweet_id=' + tids[n] + '" class="twitter_retweet_icon"' +
-                (targetBlank ? ' target="_blank">' : '>') + 'Retweet</a>' +
-                '<a href="https://twitter.com/intent/favorite?tweet_id=' +
-                tids[n] + '" class="twitter_fav_icon"' +
-                (targetBlank ? ' target="_blank">' : '>') + 'Favorite</a></p>';
-          }
+
           if (showImages && images[n] !== undefined && extractImageUrl(images[n]) !== undefined) {
             op += '<div class="media">' +
                 '<img src="' + extractImageUrl(images[n]) +
