@@ -14,10 +14,13 @@ function Connect()
 }
 
 $conn    = Connect();
-$date    = $_POST['date'];
-$title   = $_POST['title'];
-$description   = $_POST['description'];
-$query   = "INSERT INTO calendar (date, title, description) VALUES ('$date','$title', '$description')";
+$icon    = $_POST['icon'];
+$notice = $_POST['notice'];
+$query   = "UPDATE noticebar SET icon='$icon', notice='$notice' WHERE ID='7'";
+
+//"INSERT INTO noticebar (icon, notice) VALUES ('$icon','$notice')";
+
+// "UPDATE noticebar SET icon=$icon, notice=$notice WHERE ID='7'"
 $success = $conn->query($query);
 
 if (!$success) {

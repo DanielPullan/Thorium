@@ -31,8 +31,27 @@
     <div class="row col-12 panel">
         <!-- the banner stuff gets called here, currently it's defined in a config.js file -->
         <div class="col-9">
-            <span id='bannerIcon'></span>
-            <span id='bannerText' class='panelText'></span>
+            <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "1123";
+                $dbname = "thorium";
+
+                // Create connection
+                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                // Check connection
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+
+                $sql = "SELECT id, icon, notice FROM noticebar";
+                $result = mysqli_query($conn, $sql);
+                
+        while($row = mysqli_fetch_assoc($result)) {
+            echo "<p class='panelText'><i class='" . $row["icon"] . "'></i>". $row["notice"] . " ";
+         }
+        mysqli_close($conn);
+        ?>
         </div>
         <div class="col-3">
             <p id='date' style="text-align:right;"></p>

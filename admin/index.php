@@ -1,48 +1,35 @@
-<html>
 <?php
 
-    include 'header.php';
+function Connect()
+{
+ $dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "1123";
+ $dbname = "thorium";
 
-    ?>
+ // Create connection
+ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($conn->connect_error);
 
-    <body>
+ return $conn;
+}
 
-        <div class="row">
-            <div class="col-3">
-                <h3> Add new event</h3>
-                <p>
-                    Enter the details of the event you'd like to add to the calendar
-                </p>
-                <form action="insert.php" method="post">
-                    <p>
-                        Date:
-                    </p>
-                    <input type="text" name="date" required placeholder="YYYY-MM-DD">
-                    <p>
-                        Title:
-                    </p>
-                    <input type="text" name="title" required placeholder="Give your event a title">
-                    <p>
-                        Description:
-                    </p>
-                    <input type="text" name="description" required placeholder="Describe what's happening">
-                    <input type="submit" value="Submit"><br>
-                </form>
-            </div>
-            <div class="col-3">
-                <h3>Remove event</h3>
-                <p>
-                    Enter the date of the event you would like to remove:
-                </p>
-                <form action="remove.php" method="post">
-                    <p>
-                        Date:
-                    </p>
-                    <input type="text" name="date" required placeholder="YYYY-MM-DD">
-                    <input type="submit" value="Submit"><br>
-                </form>
-            </div>
-        </div>
-    </body>
+$conn    = Connect();
+$icon    = $_POST['icon'];
+$notice = $_POST['notice'];
+$query   = "UPDATE noticebar SET icon='$icon', notice='$notice' WHERE ID='7'";
 
-</html>
+//"INSERT INTO noticebar (icon, notice) VALUES ('$icon','$notice')";
+
+// "UPDATE noticebar SET icon=$icon, notice=$notice WHERE ID='7'"
+$success = $conn->query($query);
+
+if (!$success) {
+    die("Couldn't enter data: ".$conn->error);
+
+}
+
+$conn->close();
+
+echo 'Event added, click <a href="http://localhost">here</a> to see it '
+
+?>
