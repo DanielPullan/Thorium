@@ -68,20 +68,31 @@
                 </ul>
             </div>
             <div id="slider2">
-             <div id="exampleProfile"></div>
-            
+<div id="exampleProfile"></div>
+                <ul>
+<li>
+
+</li>
+<li>
+
+</li>
+<li>
+
+</li>
+            </ul>
             </div>
+
         </div>
         <div class="col-6">
             <div id="slider">
-                
-                
-                
-            
-                
-                
-                
-                
+
+
+<div id="exampleProfile"></div>
+
+
+
+
+
                 <ul>
                     <!-- this is a bit of php i found online, it looks for the images folder then every image inside becomes a li, then the slideshow displays it -->
                     <?php
@@ -106,11 +117,11 @@
 
 
 </body>
-    
-<!-- Jquery -->    
+
+<!-- Jquery -->
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
-<!-- Site config file -->    
+<!-- Site config file -->
 <script type="text/javascript" src="settings/config.js"></script>
 
 <!-- Google Calendar bits -->
@@ -121,13 +132,13 @@
     upcomingTopN: 3,
     format: ['*summary*', '*date*', '*description*', '*location*'],
 });</script>
-    
+
 <!-- Twitter stuff -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
 <script type="text/javascript" src="js/twitterFetcher.js"></script>
 <script type="text/javascript" src="js/exampleUsage.js"></script>
 
-<!-- Slider for the gallery -->    
+<!-- Slider for the gallery -->
 <script>
     jQuery(document).ready(function($) {
         $('#checkbox').ready(function() {
@@ -217,9 +228,9 @@ jQuery(document).ready(function($) {
         moveRight();
     });
 });
-</script>    
+</script>
 
-<!-- Twitter iFrame stuff, will remove when Twitter slider is complete -->    
+<!-- Twitter iFrame stuff, will remove when Twitter slider is complete -->
 <script>
     window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
@@ -237,18 +248,18 @@ jQuery(document).ready(function($) {
     }(document, "script", "twitter-wjs"));
 
 </script>
-    
+
 <!-- To put the date in the noticebar -->
 <script>
     var today = new Date();
     $('#date').html(today.toDateString());
 
 </script>
-    
+
 <!-- I should probably call this from my own website... Oh well -->
 <script>
     console.log("Hi! This digital signage.... thing... was made by Daniel Pullan (https://danielpullan.co.uk)")
     console.log("Bugs can be reported to the current email address on my website. There will be some.")
-
 </script>
+
 </html>
