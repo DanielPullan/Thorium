@@ -67,27 +67,10 @@
                     </ul>
                 </ul>
             </div>
-            <div id="slider2">
-<div id="exampleProfile"></div>
-                <ul>
-<li>
-
-</li>
-<li>
-
-</li>
-<li>
-
-</li>
-            </ul>
-            </div>
 
         </div>
         <div class="col-6">
             <div id="slider">
-
-
-<div id="exampleProfile"></div>
 
 
 

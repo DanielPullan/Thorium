@@ -30,6 +30,6 @@ if (!$success) {
 
 $conn->close();
 
-echo 'Event added, click <a href="http://localhost">here</a> to see it '
+echo 'Banner added, click <a href="http://localhost">here</a> to go to Digital Signage '
 
 ?>

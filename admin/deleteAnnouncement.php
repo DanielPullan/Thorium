@@ -1,25 +1,35 @@
 <?php
 
-require_once('/core/mysql.class.php')
+function Connect()
+{
+ $dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "1123";
+ $dbname = "thorium";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+ // Create connection
+ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($conn->connect_error);
+
+ return $conn;
 }
 
-    $sql = "SELECT id, title, description FROM calendar";
-$result = mysqli_query($conn, $sql);
+$conn    = Connect();
+$icon    = " ";
+$notice = " ";
+$query   = "UPDATE noticebar SET icon='$icon', notice='$notice' WHERE ID='7'";
 
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "<li><p class='calendarText'>" . $row["title"] . "</p> <p class='calendarText'>" . $row["description"] . "</p>" . "<br>";
-    }
-} else {
-    echo "0 results";
+//"INSERT INTO noticebar (icon, notice) VALUES ('$icon','$notice')";
+
+// "UPDATE noticebar SET icon=$icon, notice=$notice WHERE ID='7'"
+$success = $conn->query($query);
+
+if (!$success) {
+    die("Couldn't enter data: ".$conn->error);
+
 }
 
-mysqli_close($conn);
+$conn->close();
+
+echo 'Banner removed, click <a href="http://localhost">here</a> to return to Digital Signage '
+
 ?>
