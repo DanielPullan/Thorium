@@ -1,12 +1,11 @@
-import time
 import os
 import subprocess
-import sys
 
-boot = raw_input("what boot are you on: ")
 
+boot = input("what boot are you on: ")
+print(boot)
 # if boot is zero, we haven't ran through the script yet
-if boot == 0:
+if boot is "0":
     # Enable SSH on First Boot
     subprocess.call(["sudo", "touch", "/boot/ssh"])
     # Find out the hostname
@@ -14,9 +13,7 @@ if boot == 0:
     # If there is raspberry in the hostname, it's not been named yet so
     if "raspberry" in hostname:
         # Read the hostname file we created in boot
-        linestring = open('/boot/hostname.txt', 'r').read()
-        # Set it as new hostname
-        linestring = newHostname
+        newHostname = open('/boot/hostname.txt', 'r').read()
         # Then actually make it the new hostname
         subprocess.call(["sudo", "hostnamectl", "set-hostname", newHostname])
         # first boot to 1, so we can count where we are in the process
@@ -25,7 +22,7 @@ if boot == 0:
         subprocess.call(["sudo", "raspi-config", "--expand-rootfs"])
 # if boot is 1, we've done all the first setup steps, so we have room to install
 # packages
-elif boot == 1:
+elif boot is "1":
     # Update packages
     print("updating")
     os.system("sudo apt-get update -y")
@@ -56,7 +53,7 @@ elif boot == 1:
     os.system("sudo apt-get install chromium-browser")
     boot = 2
     os.system("sudo reboot -y")
-elif boot == 2:
+elif boot is "2":
     f = open('/etc/lightdm/lightdm.conf', 'w')  # to clear the file
     f.write("""
     #
@@ -229,4 +226,4 @@ elif boot == 2:
 
     boot = 3
 else:
-	print("shit don't work")
+    print("shit don't work")
