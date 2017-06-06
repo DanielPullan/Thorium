@@ -21,10 +21,12 @@ if boot = 0:
     else:
         # Print this for logging
         print(["This raspberry pi is called", hostname])
+        
     # first boot to 1, so we can count where we are in the process
     firstBoot = 1
-        # Expand root filesystem, this requires a restart
-        subprocess.call(["sudo", "raspi-config","--expand-rootfs"])
+    # Expand root filesystem, this requires a restart
+    subprocess.call(["sudo", "raspi-config","--expand-rootfs"])
+
 # if boot is 1, we've done all the first setup steps, so we have room to install
 # packages
 elif boot = 1:
@@ -34,14 +36,21 @@ elif boot = 1:
     # Upgrade Packages
     print ("upgrading")
     os.system("sudo apt-get upgrade -y")
+    # Clean up
+    print ("cleaning")
+    os.system("sudo apt-get clean")
+    # Install X server
+    print ("Installing X Server")
+    os.system("sudo apt-get install --no-install-recommends xserver-xorg -y")
+    # Install a desktop environment
+    print ("Installing a desktop")
+    os.system("sudo apt-get install raspberrypi-ui-mods")
     # Install PHP and PHP Related stuff
     print ("installing php5 and php5-mysql")
     os.system("sudo apt-get install php5 php5-mysql -y")
-
     # Install git and rsync
     print ("installing git")
     os.system("sudo apt-get install git rsync -y")
-
     # Install Apache2
     print ("installing webserver")
     os.system("sudo apt-get install apache2 -y")
