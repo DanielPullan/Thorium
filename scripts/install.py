@@ -37,7 +37,7 @@ elif boot is "1":
     os.system("sudo apt-get install --no-install-recommends xserver-xorg -y")
     # Install a desktop environment
     print("Installing a desktop")
-    os.system("sudo apt-get install raspberrypi-ui-mods")
+    os.system("sudo apt-get install raspberrypi-ui-mods -y")
     # Install PHP and PHP Related stuff
     print("installing php5 and friends")
     os.system(
