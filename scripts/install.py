@@ -2,24 +2,22 @@ import os
 import subprocess
 from pathlib import Path
 
-# create a function called bootvalue
-def bootvalue():
-    # choose a file to pick on
-    my_file = Path("config.file")
-    # if my file is indeed a file, there has been a boot
-    if my_file.is_file():
+
+# choose a file to pick on
+my_file = Path("config.file")
+# if my file is indeed a file, there has been a boot
+if my_file.is_file():
+    def file():
         # then we found a file
         print("file exists")
         # open the file in read mode
         f = open('config.file', 'r')
         # set boot to the contents of the file
-        boot = f.read()
-        # print it
-        print(boot)
-        # return it so we can use the variable outside the function
-        return boot
-    # if the file isn't indeed a file, there hasn't been a boot yet
-    else:
+        bootvalue = f.read()
+        return bootvalue
+# if the file isn't indeed a file, there hasn't been a boot yet
+else:
+    def nofile():
         # then we didn't find a file
         print("file didn't exist, creating now")
         # write a file
@@ -31,14 +29,12 @@ def bootvalue():
         # now open it up again
         f = open('config.file', 'r')
         # call boot the contents of the file
-        boot = f.read()
-        # print it
-        print(boot)
-        # return the value, so we can use it outside the function
-        return boot
+        bootvalue = f.read()
+        return bootvalue
 
 # assign the result of our bootvalue function to boot, for our loop
-boot = bootvalue()
+boot = 0 # this is stupid. just to stop pycharm from shouting at me the sky is falling
+bootvalue = boot
 
 # if boot is zero, we haven't ran through the script yet
 if boot is "0":
