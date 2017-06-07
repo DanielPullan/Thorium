@@ -1,8 +1,17 @@
 import os
 import subprocess
+from pathlib import Path
 
-boot = input("what boot are you on: ")
-print(boot)
+my_file = Path("config.file")
+if my_file.is_file():
+    f = open('config.file', 'r')
+    boot = f.read()
+    print(boot)
+else:
+    f = open('config.file', 'w')  # to clear the file
+    f.write("0")
+    f.close()
+
 # if boot is zero, we haven't ran through the script yet
 if boot is "0":
     # Enable SSH on First Boot
@@ -17,9 +26,14 @@ if boot is "0":
         subprocess.call(["sudo", "hostnamectl", "set-hostname", newHostname])
         # first boot to 1, so we can count where we are in the process
         print("boot order is now 1")
-        boot = 1
+        f = open('install.config', 'w')
+        f.write("1")
+        f.close()
         # Expand root filesystem, this requires a restart
         subprocess.call(["sudo", "raspi-config", "--expand-rootfs"])
+        # Set a password from user input
+        print("Set a new password")
+        subprocess.call(["passwd"])
 # if boot is 1, we've done all the first setup steps, so we have room to install
 # packages
 elif boot is "1":
@@ -53,7 +67,9 @@ elif boot is "1":
     print("installing browser")
     subprocess.call(["sudo", "apt-get", "install", "chromium-browser", "-y"])
     print("boot order is now 2")
-    boot = 2
+    f = open('install.config', 'w')
+    f.write("2")
+    f.close()
     subprocess.call(["sudo", "reboot"])
 elif boot is "2":
     print("Changing lightdm conf")
@@ -286,6 +302,10 @@ elif boot is "2":
     f.close()
     # set the boot value to 3
     print("boot order is now 3")
-    boot = 3
+    f = open('install.config', 'w')
+    f.write("3")
+    f.close()
 else:
+    # once we've done everything... remove the file!
+    subprocess.call(["sudo", "rm", "install.py"])
     print("shit don't work")
