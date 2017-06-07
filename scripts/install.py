@@ -113,7 +113,7 @@ elif boot is "2":
     # xdmcp-manager = XDMCP manager to connect to (implies xserver-allow-tcp=true)
     # xdmcp-port = XDMCP UDP/IP port to communicate on
     # xdmcp-key = Authentication key to use for XDM-AUTHENTICATION-1 (stored in keys.conf)
-    # unity-compositor-command = Unity compositor command to run (can also contain arguments e.g. unity-system-compositor -special-option)
+    # unity-compositor-command = Unity compositor command to run
     # unity-compositor-timeout = Number of seconds to wait for compositor to start
     # greeter-session = Session to load for greeter
     # greeter-hide-users = True to hide the user list
