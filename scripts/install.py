@@ -2,15 +2,24 @@ import os
 import subprocess
 from pathlib import Path
 
-my_file = Path("config.file")
-if my_file.is_file():
-    f = open('config.file', 'r')
-    boot = f.read()
-    print(boot)
-else:
-    f = open('config.file', 'w')  # to clear the file
-    f.write("0")
-    f.close()
+
+def bootvalue():
+    my_file = Path("config.file")
+    if my_file.is_file():
+        f = open('config.file', 'r')
+        boot = f.read()
+        print(boot)
+        return boot
+    else:
+        f = open('config.file', 'w')  # to clear the file
+        f.write("0")
+        f.close()
+        f = open('config.file', 'r')
+        boot = f.read()
+        print(boot)
+        return boot
+
+boot = bootvalue()
 
 # if boot is zero, we haven't ran through the script yet
 if boot is "0":
