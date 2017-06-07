@@ -8,6 +8,8 @@ def bootvalue():
     my_file = Path("config.file")
     # if my file is indeed a file, there has been a boot
     if my_file.is_file():
+        # then we found a file
+        print("file exists")
         # open the file in read mode
         f = open('config.file', 'r')
         # set boot to the contents of the file
@@ -18,6 +20,8 @@ def bootvalue():
         return boot
     # if the file isn't indeed a file, there hasn't been a boot yet
     else:
+        # then we didn't find a file
+        print("file didn't exist, creating now")
         # write a file
         f = open('config.file', 'w')  # to clear the file
         # write 0, to start from the beginning
