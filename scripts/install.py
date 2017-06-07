@@ -1,7 +1,6 @@
 import os
 import subprocess
 
-
 boot = input("what boot are you on: ")
 print(boot)
 # if boot is zero, we haven't ran through the script yet
@@ -17,6 +16,7 @@ if boot is "0":
         # Then actually make it the new hostname
         subprocess.call(["sudo", "hostnamectl", "set-hostname", newHostname])
         # first boot to 1, so we can count where we are in the process
+        print("boot order is now 1")
         boot = 1
         # Expand root filesystem, this requires a restart
         subprocess.call(["sudo", "raspi-config", "--expand-rootfs"])
@@ -41,7 +41,8 @@ elif boot is "1":
     # Install PHP and PHP Related stuff
     print("installing php5 and friends")
     subprocess.call([
-        "sudo", "apt-get", "install", "php5", "php5-common", "libapache2-mod-php5", "php5-mysql", "php5-curl", "php5-json", "-y"])
+        "sudo", "apt-get", "install", "php5", "php5-common", "libapache2-mod-php5", "php5-mysql", "php5-curl",
+        "php5-json", "-y"])
     # Install git and rsync
     print("installing git")
     subprocess.call(["sudo", "apt-get", "install", "git", "rsync", "-y"])
@@ -51,6 +52,7 @@ elif boot is "1":
     # Install a browser
     print("installing browser")
     subprocess.call(["sudo", "apt-get", "install", "chromium-browser", "-y"])
+    print("boot order is now 2")
     boot = 2
     subprocess.call(["sudo", "reboot"])
 elif boot is "2":
@@ -225,6 +227,58 @@ elif boot is "2":
     """)
     f.close()
 
+    # download latest version of Thorium from Github
+    print("downloading thorium")
+    subprocess.call(["git", "clone", "https://github.com/danielpullan/thorium"])
+    # rm the default index.html file
+    print("goodbye default index")
+    subprocess.call(["sudo", "rm", "/var/www/html/index.html"])
+    # mv the thorium folder to the html folder
+    print("moving folder")
+    subprocess.call(["sudo", "mv", "thorium/", "/var/www/html"])
+    # wipe the default 000-default file
+    print("goodbye contents of default apache file")
+    f = open('/etc/apache2/sites-available/000-default.conf', 'w')  # to clear the file
+    # write the new config in to direct to thorium folder
+    print("hello new contents of default apache file")
+    f.write("""
+    <VirtualHost *:80>
+        # The ServerName directive sets the request scheme, hostname and port that
+        # the server uses to identify itself. This is used when creating
+        # redirection URLs. In the context of virtual hosts, the ServerName
+        # specifies what hostname must appear in the request's Host: header to
+        # match this virtual host. For the default virtual host (this file) this
+        # value is not decisive as it is used as a last resort host regardless.
+        # However, you must set it for any further virtual host explicitly.
+        #ServerName www.example.com
+    
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html/thorium
+    
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+    
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
+        # For most configuration files from conf-available/, which are
+        # enabled or disabled at a global level, it is possible to
+        # include a line for only one particular virtual host. For example the
+        # following line enables the CGI configuration for this host only
+        # after it has been globally disabled with "a2disconf".
+        #Include conf-available/serve-cgi-bin.conf
+    </VirtualHost>
+    
+    # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+    """)
+    # close the file like a good citizen
+    f.close()
+    # set the boot value to 3
+    print("boot order is now 3")
     boot = 3
 else:
     print("shit don't work")
