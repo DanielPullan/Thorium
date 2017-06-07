@@ -227,6 +227,12 @@ elif boot is "2":
     """)
     f.close()
 
+    # TODO kiosk mode
+
+    # removing thorium folders in case it already exists (it shouldn't)
+    print("removing folders just in case")
+    subprocess.call(["sudo", "rm", "-rf", "thorium"])
+    subprocess.call(["sudo", "rm", "-rf", "/var/www/html/thorium"])
     # download latest version of Thorium from Github
     print("downloading thorium")
     subprocess.call(["git", "clone", "https://github.com/danielpullan/thorium"])
