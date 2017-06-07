@@ -7,8 +7,9 @@
 	- write to sd card
 
 ### if using a blank sd card:
-	use pibakery, import the recipe
-	write to sd card
+	- use pibakery, import the recipe
+	- write to sd card
+	- use raspbian lite, we will install a de in the script
 
 ### then in file explorer, open the boot sd card:
 	- create a file called "hostname.txt"

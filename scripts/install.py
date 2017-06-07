@@ -228,6 +228,7 @@ elif boot is "2":
     f.close()
 
     # TODO kiosk mode
+    # TODO cron job to update content every day at 2am
 
     # removing thorium folders in case it already exists (it shouldn't)
     print("removing folders just in case")
