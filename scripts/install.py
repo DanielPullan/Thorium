@@ -2,23 +2,38 @@ import os
 import subprocess
 from pathlib import Path
 
-
+# create a function called bootvalue
 def bootvalue():
+    # choose a file to pick on
     my_file = Path("config.file")
+    # if my file is indeed a file, there has been a boot
     if my_file.is_file():
+        # open the file in read mode
         f = open('config.file', 'r')
+        # set boot to the contents of the file
         boot = f.read()
+        # print it
         print(boot)
+        # return it so we can use the variable outside the function
         return boot
+    # if the file isn't indeed a file, there hasn't been a boot yet
     else:
+        # write a file
         f = open('config.file', 'w')  # to clear the file
+        # write 0, to start from the beginning
         f.write("0")
+        # close the file, like a good citizen
         f.close()
+        # now open it up again
         f = open('config.file', 'r')
+        # call boot the contents of the file
         boot = f.read()
+        # print it
         print(boot)
+        # return the value, so we can use it outside the function
         return boot
 
+# assign the result of our bootvalue function to boot, for our loop
 boot = bootvalue()
 
 # if boot is zero, we haven't ran through the script yet
