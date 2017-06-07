@@ -25,40 +25,41 @@ if boot is "0":
 elif boot is "1":
     # Update packages
     print("updating")
-    os.system("sudo apt-get update -y")
+    subprocess.call(["sudo", "apt-get", "update", "-y"])
     # Upgrade Packages
     print("upgrading")
-    os.system("sudo apt-get upgrade -y")
+    subprocess.call(["sudo", "apt-get", "upgrade", "-y"])
     # Clean up
     print("cleaning")
-    os.system("sudo apt-get clean")
+    subprocess.call(["sudo", "apt-get", "clean"])
     # Install X server
     print("Installing X Server")
-    os.system("sudo apt-get install --no-install-recommends xserver-xorg -y")
+    subprocess.call(["sudo", "apt-get", "install", "--no-install-recommends", "xserver-xorg", "-y"])
     # Install a desktop environment
     print("Installing a desktop")
-    os.system("sudo apt-get install raspberrypi-ui-mods -y")
+    subprocess.call(["sudo", "apt-get", "install", "raspberrypi-ui-mods", "-y"])
     # Install PHP and PHP Related stuff
     print("installing php5 and friends")
-    os.system(
-        "sudo apt-get install libapache2-mod-php5 php5-mysql php5-curl php5-json -y")
+    subprocess.call([
+        "sudo", "apt-get", "install", "php5", "php5-common", "libapache2-mod-php5", "php5-mysql", "php5-curl", "php5-json", "-y"])
     # Install git and rsync
     print("installing git")
-    os.system("sudo apt-get install git rsync -y")
+    subprocess.call(["sudo", "apt-get", "install", "git", "rsync", "-y"])
     # Install Apache2
     print("installing webserver")
-    os.system("sudo apt-get install apache2 -y")
+    subprocess.call(["sudo", "apt-get", "install", "apache2", "-y"])
     # Install a browser
     print("installing browser")
-    os.system("sudo apt-get install chromium-browser")
+    subprocess.call(["sudo", "apt-get", "install", "chromium-browser", "-y"])
     boot = 2
-    os.system("sudo reboot -y")
+    subprocess.call(["sudo", "reboot"])
 elif boot is "2":
+    print("Changing lightdm conf")
     f = open('/etc/lightdm/lightdm.conf', 'w')  # to clear the file
     f.write("""
     #
     # General configuration
-    #
+    # 
     # start-default-seat = True to always start one seat if none are defined in the configuration
     # greeter-user = User to run greeter as
     # minimum-display-number = Minimum display number to use for X servers

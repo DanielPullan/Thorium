@@ -3,3 +3,5 @@ scripts/.idea/modules.xml
 scripts/.idea/scripts.iml
 scripts/.idea/workspace.xml
 scripts/.idea/misc.xml
+scripts/.idea/deployment.xml
+scripts/.idea/webServers.xml
