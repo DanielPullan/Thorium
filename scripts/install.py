@@ -5,34 +5,32 @@ from pathlib import Path
 def filestep():
     # choose a file to pick on
     my_file = Path("config.file")
-    f = 0
     # if my file is indeed a file, there has been a boot
     if my_file.is_file():
-            # then we found a file
-            print("file exists")
-            # open the file in read mode
-            f = open('config.file', 'r')
-            # set boot to the contents of the file
-            bootvalue = f.read()
-            print(bootvalue)
-            return bootvalue
+        # then we found a file
+        print("file exists")
+        # open the file in read mode
+        f = open('config.file', 'r')
+        # set boot to the contents of the file
+        bootvalue = f.read()
+        print(bootvalue)
+        return bootvalue
     # if the file isn't indeed a file, there hasn't been a boot yet
     else:
-        def nothing():
-            # then we didn't find a file
-            print("file didn't exist, creating now")
-            # write a file
-            f = open('config.file', 'w')  # to clear the file
-            # write 0, to start from the beginning
-            f.write("0")
-            # close the file, like a good citizen
-            f.close()
-            # now open it up again
-            f = open('config.file', 'r')
-            # call boot the contents of the file
-            bootvalue = f.read()
-            print(bootvalue)
-            return bootvalue
+        # then we didn't find a file
+        print("file didn't exist, creating now")
+        # write a file
+        f = open('config.file', 'w')  # to clear the file
+        # write 0, to start from the beginning
+        f.write("0")
+        # close the file, like a good citizen
+        f.close()
+        # now open it up again
+        f = open('config.file', 'r')
+        # call boot the contents of the file
+        bootvalue = f.read()
+        print(bootvalue)
+        return bootvalue
 
 bootvalue = filestep()
 
@@ -53,11 +51,9 @@ if bootvalue is "0":
         f = open('install.config', 'w')
         f.write("1")
         f.close()
+        # TODO Find out if this bit is needed...
         # Expand root filesystem, this requires a restart
-        subprocess.call(["sudo", "raspi-config", "--expand-rootfs"])
-        # Set a password from user input
-        print("Set a new password")
-        subprocess.call(["passwd"])
+        # subprocess.call(["sudo", "raspi-config", "--expand-rootfs"])
 # if boot is 1, we've done all the first setup steps, so we have room to install
 # packages
 elif bootvalue is "1":

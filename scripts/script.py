@@ -2,10 +2,14 @@
 import time
 import subprocess
 import sys
-
 # ask the user what they want to sync to, save as a variable
 userCommand = sys.argv[1]
 clientsAffected = sys.argv[2]
+
+# TODO: SET UP THE NEW PI NAMES
+# TODO: LOOK UP WHETHER LOOP HOSTNAMES AND DOING THINGS THAT WAY MAKES MORE SENSE
+# TODO: AUTOMATICALLY SET UP CRONJOB SO THIS SCRIPT RUNS
+# TODO: ADD TO SCRIPT TO ACTUALLY RESTART THE PI'S EACH DAY AT X TIME, LESS CONFIG ON PI IS BETTER
 
 # define all the clients and the commands to rsync to them
 exportGyllir = ["rsync", "-a", "/var/www/", "pi@gyllir:/var/www/", "--delete"]
