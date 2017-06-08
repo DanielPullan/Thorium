@@ -2,42 +2,42 @@ import os
 import subprocess
 from pathlib import Path
 
+def filestep():
+    # choose a file to pick on
+    my_file = Path("config.file")
+    f = 0
+    # if my file is indeed a file, there has been a boot
+    if my_file.is_file():
+            # then we found a file
+            print("file exists")
+            # open the file in read mode
+            f = open('config.file', 'r')
+            # set boot to the contents of the file
+            bootvalue = f.read()
+            print(bootvalue)
+            return bootvalue
+    # if the file isn't indeed a file, there hasn't been a boot yet
+    else:
+        def nothing():
+            # then we didn't find a file
+            print("file didn't exist, creating now")
+            # write a file
+            f = open('config.file', 'w')  # to clear the file
+            # write 0, to start from the beginning
+            f.write("0")
+            # close the file, like a good citizen
+            f.close()
+            # now open it up again
+            f = open('config.file', 'r')
+            # call boot the contents of the file
+            bootvalue = f.read()
+            print(bootvalue)
+            return bootvalue
 
-# choose a file to pick on
-my_file = Path("config.file")
-# if my file is indeed a file, there has been a boot
-if my_file.is_file():
-    def file():
-        # then we found a file
-        print("file exists")
-        # open the file in read mode
-        f = open('config.file', 'r')
-        # set boot to the contents of the file
-        bootvalue = f.read()
-        return bootvalue
-# if the file isn't indeed a file, there hasn't been a boot yet
-else:
-    def nofile():
-        # then we didn't find a file
-        print("file didn't exist, creating now")
-        # write a file
-        f = open('config.file', 'w')  # to clear the file
-        # write 0, to start from the beginning
-        f.write("0")
-        # close the file, like a good citizen
-        f.close()
-        # now open it up again
-        f = open('config.file', 'r')
-        # call boot the contents of the file
-        bootvalue = f.read()
-        return bootvalue
-
-# assign the result of our bootvalue function to boot, for our loop
-boot = 0 # this is stupid. just to stop pycharm from shouting at me the sky is falling
-bootvalue = boot
+bootvalue = filestep()
 
 # if boot is zero, we haven't ran through the script yet
-if boot is "0":
+if bootvalue is "0":
     # Enable SSH on First Boot
     subprocess.call(["sudo", "touch", "/boot/ssh"])
     # Find out the hostname
@@ -60,7 +60,7 @@ if boot is "0":
         subprocess.call(["passwd"])
 # if boot is 1, we've done all the first setup steps, so we have room to install
 # packages
-elif boot is "1":
+elif bootvalue is "1":
     # Update packages
     print("updating")
     subprocess.call(["sudo", "apt-get", "update", "-y"])
@@ -95,7 +95,7 @@ elif boot is "1":
     f.write("2")
     f.close()
     subprocess.call(["sudo", "reboot"])
-elif boot is "2":
+elif bootvalue is "2":
     print("Changing lightdm conf")
     f = open('/etc/lightdm/lightdm.conf', 'w')  # to clear the file
     f.write("""
