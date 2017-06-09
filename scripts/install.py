@@ -7,48 +7,80 @@ import subprocess
 from pathlib import Path
 import socket
 
-
+# Define a function for our config file detection / creation
 def filestep():
+    # define the file we will use as our config file
     my_file = Path('config.file')
+    # if the file exists, we're not on the first boot
     if my_file.is_file():
+        # open the file in read mode, write would wipe it
         configfile = open('config.file', 'r')
+        # read the value, assign it's content to a value
         configvalue = configfile.read()
+        # close the file like a good citizen
         configfile.close()
+        # use rstrip to get rid of /n
         theresult = configvalue.rstrip()
+        # return the variable that doesn't have /n
         return theresult
+    # if the file doesn't exist, this is the first install
     else:
+        # open our already defined config file in write mode
         configfile = open('config.file', 'w')
+        # write 0, our starting variable
         configfile.write('0')
+        # close the file like a good citizen
         configfile.close()
+        # open it up again in read mode
         configfile = open('config.file', 'r')
+        # set it's content to a variable
         configvalue = configfile.read()
+        # close the file yet again, we're such good citizens
         configfile.close()
+        # strip out /n, use that as our final variable for the step
         theresult = configvalue.rstrip()
+        # return it so we can use it
         return theresult
 
-
+# Define a function so that we can name our device
 def namedevice():
+    # get the current hostname, set to a variable
     hostname = socket.gethostname()
+    # if raspberry is in hostname, we haven't set the hostname yet
     if "raspberry" in hostname:
+        # open our hostname config in read mode, I don't remember doing it this way, it's smarter
         hostnameconfig = open('/boot/hostname.txt', 'r').read()
+        # strip the /n, use that as our hostname
         newhostname = hostnameconfig.rstrip()
+        # set the /n-free variable as our new hostname
         subprocess.call(["sudo", "hostnamectl", "set-hostname", newhostname])
+    # else, raspberry doesn't exist in the name and this pi has already been named
     else:
+        # print the name of our device, mainly for logging purposes
         print('this device has been named', hostname)
 
+# I don't think this needs to exist, but it doesn't hurt
 filestep()
 
+# Set our bootvalue (the step that the script is in with the install) to the result of our file name function
 bootvalue = filestep()
 
+# Print the result, this was for debugging
 print("the value of bootvalue is", bootvalue)
 
 # if boot is zero, we haven't ran through the script yet
 if bootvalue == "0":
+    # enable ssh by creating an SSH file in boot
     subprocess.call(["sudo", "touch", "/boot/ssh"])
+    # name our device using the name device function
     namedevice()
+    # open our config file in write mode
     f = open('config.file', 'w')
+    # write 1, since we've finished step 1 now
     f.write("1")
+    # close the file like a good citizen
     f.close()
+    # reboot our device, changing the hostname causes issues, this gets us away from that
     subprocess.call(["sudo", "reboot"])
 # if boot is 1, we've done all the first setup steps, so we have room to install
 # packages
