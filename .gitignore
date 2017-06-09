@@ -15,3 +15,7 @@ scripts/.idea/vcs.xml
 .idea/deployment.xml
 .idea/dictionaries/dansb.xml
 images/startup-flowchart.gif
+scripts/.config.file.swp
+*.swp
+scripts/__pycache__/install.cpython-35.pyc
+scripts/this will work.py

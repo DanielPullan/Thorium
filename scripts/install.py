@@ -1,55 +1,51 @@
 import os
 import subprocess
 from pathlib import Path
+import socket
+
 
 def filestep():
-    # choose a file to pick on
-    my_file = Path("config.file")
-    # if my file is indeed a file, there has been a boot
+    my_file = Path('config.file')
     if my_file.is_file():
-        # then we found a file
-        # open the file in read mode
-        f = open('config.file', 'r')
-        # set boot to the contents of the file
-        bootvalue = f.read()
-        return bootvalue
-    # if the file isn't indeed a file, there hasn't been a boot yet
+        configfile = open('config.file', 'r')
+        configvalue = configfile.read()
+        configfile.close()
+        theresult = configvalue.rstrip()
+        return theresult
     else:
-        # then we didn't find a file
-        print("file didn't exist, creating now")
-        # write a file
-        f = open('config.file', 'w')  # to clear the file
-        # write 0, to start from the beginning
-        f.write("0")
-        # close the file, like a good citizen
-        f.close()
-        # now open it up again
-        f = open('config.file', 'r')
-        # call boot the contents of the file
-        bootvalue = f.read()
-        return bootvalue
+        configfile = open('config.file', 'w')
+        configfile.write('0')
+        configfile.close()
+        configfile = open('config.file', 'r')
+        configvalue = configfile.read()
+        configfile.close()
+        theresult = configvalue.rstrip()
+        return theresult
+
+
+def namedevice():
+    hostname = socket.gethostname()
+    if "raspberry" in hostname:
+        hostnameconfig = open('/boot/hostname.txt', 'r').read()
+        newhostname = hostnameconfig.rstrip()
+        subprocess.call(["sudo", "hostnamectl", "set-hostname", newhostname])
+    else:
+        print('this device has been named', hostname)
+
+filestep()
 
 bootvalue = filestep()
 
+print("the value of bootvalue is", bootvalue)
+
 # if boot is zero, we haven't ran through the script yet
 if bootvalue == "0":
-    print()
-    # Enable SSH on First Boot
     subprocess.call(["sudo", "touch", "/boot/ssh"])
-    # Find out the hostname
-    hostname = os.uname()
-    # If there is raspberry in the hostname, it's not been named yet so
-    if "raspberry" in hostname:
-        # Read the hostname file we created in boot
-        newHostname = open('/boot/hostname.txt', 'r').read()
-        # Then actually make it the new hostname
-        subprocess.call(["sudo", "hostnamectl", "set-hostname", newHostname])
-        # TODO Find out if this bit is needed...
-        # Expand root filesystem, this requires a restart
-        # subprocess.call(["sudo", "raspi-config", "--expand-rootfs"])
-    f = open('install.config', 'w')
+    namedevice()
+    f = open('config.file', 'w')
     f.write("1")
     f.close()
+    subprocess.call(["sudo", "reboot"])
 # if boot is 1, we've done all the first setup steps, so we have room to install
 # packages
 elif bootvalue == "1":
@@ -83,7 +79,7 @@ elif bootvalue == "1":
     print("installing browser")
     subprocess.call(["sudo", "apt-get", "install", "chromium-browser", "-y"])
     print("boot order is now 2")
-    f = open('install.config', 'w')
+    f = open('config.file', 'w')
     f.write("2")
     f.close()
     subprocess.call(["sudo", "reboot"])
@@ -318,10 +314,9 @@ elif bootvalue == "2":
     f.close()
     # set the boot value to 3
     print("boot order is now 3")
-    f = open('install.config', 'w')
+    f = open('config.file', 'w')
     f.write("3")
     f.close()
 else:
     # once we've done everything... remove the file!
-    subprocess.call(["sudo", "rm", "install.py"])
     print("shit don't work")
