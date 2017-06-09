@@ -8,12 +8,10 @@ def filestep():
     # if my file is indeed a file, there has been a boot
     if my_file.is_file():
         # then we found a file
-        print("file exists")
         # open the file in read mode
         f = open('config.file', 'r')
         # set boot to the contents of the file
         bootvalue = f.read()
-        print(bootvalue)
         return bootvalue
     # if the file isn't indeed a file, there hasn't been a boot yet
     else:
@@ -29,13 +27,13 @@ def filestep():
         f = open('config.file', 'r')
         # call boot the contents of the file
         bootvalue = f.read()
-        print(bootvalue)
         return bootvalue
 
 bootvalue = filestep()
 
 # if boot is zero, we haven't ran through the script yet
-if bootvalue is "0":
+if bootvalue == "0":
+    print()
     # Enable SSH on First Boot
     subprocess.call(["sudo", "touch", "/boot/ssh"])
     # Find out the hostname
@@ -46,17 +44,15 @@ if bootvalue is "0":
         newHostname = open('/boot/hostname.txt', 'r').read()
         # Then actually make it the new hostname
         subprocess.call(["sudo", "hostnamectl", "set-hostname", newHostname])
-        # first boot to 1, so we can count where we are in the process
-        print("boot order is now 1")
-        f = open('install.config', 'w')
-        f.write("1")
-        f.close()
         # TODO Find out if this bit is needed...
         # Expand root filesystem, this requires a restart
         # subprocess.call(["sudo", "raspi-config", "--expand-rootfs"])
+    f = open('install.config', 'w')
+    f.write("1")
+    f.close()
 # if boot is 1, we've done all the first setup steps, so we have room to install
 # packages
-elif bootvalue is "1":
+elif bootvalue == "1":
     # Update packages
     print("updating")
     subprocess.call(["sudo", "apt-get", "update", "-y"])
@@ -91,7 +87,7 @@ elif bootvalue is "1":
     f.write("2")
     f.close()
     subprocess.call(["sudo", "reboot"])
-elif bootvalue is "2":
+elif bootvalue == "2":
     print("Changing lightdm conf")
     f = open('/etc/lightdm/lightdm.conf', 'w')  # to clear the file
     f.write("""
