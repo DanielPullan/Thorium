@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Lato|Source+Sans+Pro" rel="stylesheet">
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="refresh" content="3600;url='http://localhost'">
 </head>
 
 <body>

@@ -6,6 +6,8 @@
 import subprocess
 from pathlib import Path
 import socket
+import time
+
 
 # Define a function for our config file detection / creation
 def filestep():
@@ -41,6 +43,7 @@ def filestep():
         theresult = configvalue.rstrip()
         # return it so we can use it
         return theresult
+
 
 # Define a function so that we can name our device
 def namedevice():
@@ -88,12 +91,15 @@ elif bootvalue == "1":
     # Update packages
     print("updating")
     subprocess.call(["sudo", "apt-get", "update", "-y"])
+    time.sleep(5)
     # Upgrade Packages
     print("upgrading")
     subprocess.call(["sudo", "apt-get", "upgrade", "-y"])
+    time.sleep(5)
     # Clean up
     print("cleaning")
     subprocess.call(["sudo", "apt-get", "clean"])
+    time.sleep(5)
     # Install X server
     print("Installing X Server")
     subprocess.call(["sudo", "apt-get", "install", "--no-install-recommends", "xserver-xorg", "-y"])
@@ -114,12 +120,38 @@ elif bootvalue == "1":
     # Install a browser
     print("installing browser")
     subprocess.call(["sudo", "apt-get", "install", "chromium-browser", "-y"])
+    # Install unclutter and xdotool
+    print("installing tools")
+    subprocess.call(["sudo", "apt-get", "install", "unclutter", "xdotool", "-y"])
     print("boot order is now 2")
     f = open('config.file', 'w')
     f.write("2")
     f.close()
     subprocess.call(["sudo", "reboot"])
 elif bootvalue == "2":
+    print("Creating startup script")
+    f = open('start_chromium.sh', 'w')
+    f.write("""
+    # Run browser after boot to desktop
+    /bin/sleep 3
+    sudo -u pi chromium-browser --kiosk --incognito http://localhost &
+    # End of script
+    """)
+    f.close()
+    print("Creating refresh script")
+    f = open('start_URLrefresh.sh', 'w')
+    f.write("""
+    # Start a goofy command loop to refresh the browser every 90 seconds
+    /bin/sleep 6
+    /usr/bin/lxterminal --command watch -n 986400 xdotool key ctrl+F5 &
+    # End of goofy script
+    """)
+    f.close()
+    print("Making scripts powerful.. excecutable?")
+    subprocess.call(['sudo', 'chmod', '755', 'start_URLrefresh.sh'])
+    subprocess.call(['sudo', 'chmod', '755', 'start_chromium.sh'])
+    subprocess.call(['sudo', 'chmod', '+x', 'start_URLrefresh.sh'])
+    subprocess.call(['sudo', 'chmod', '+x', 'start_URLrefresh.sh'])
     print("Changing lightdm conf")
     f = open('/etc/lightdm/lightdm.conf', 'w')  # to clear the file
     f.write("""
@@ -294,6 +326,9 @@ elif bootvalue == "2":
     # TODO kiosk mode
     # TODO cron job to update content every day at 2am
 
+    # TODO autologin as pi on login
+    # TODO wait for network on boot
+
     # removing thorium folders in case it already exists (it shouldn't)
     print("removing folders just in case")
     subprocess.call(["sudo", "rm", "-rf", "thorium"])
@@ -347,6 +382,22 @@ elif bootvalue == "2":
 
     """)
     # close the file like a good citizen
+    f.close()
+    # autostart stuff
+    print("out autostart")
+    f = open('/home/pi/.config/lxsession/LXDE-pi/autostart', 'w')
+    f.write("""
+    @lxpanel --profile LXDE - pi
+    @pcmanfm --desktop - -profile LXDE - pi
+    # @xscreensaver -no - splash
+    @point-rpi
+    @xset s off
+    @xset s noblank
+    @xset -dpms
+    @unclutter -idle 5 -root
+    @/home/pi/start_URLrefresh.sh
+    @/home/pi/start_chromium.sh
+    """)
     f.close()
     # set the boot value to 3
     print("boot order is now 3")
