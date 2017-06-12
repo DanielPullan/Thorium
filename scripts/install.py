@@ -386,18 +386,17 @@ elif bootvalue == "2":
     # autostart stuff
     print("out autostart")
     f = open('/home/pi/.config/lxsession/LXDE-pi/autostart', 'w')
-    f.write("""
-    @lxpanel --profile LXDE - pi
-    @pcmanfm --desktop - -profile LXDE - pi
-    # @xscreensaver -no - splash
-    @point-rpi
-    @xset s off
-    @xset s noblank
-    @xset -dpms
-    @unclutter -idle 5 -root
-    @/home/pi/start_URLrefresh.sh
-    @/home/pi/start_chromium.sh
-    """)
+    f.write("""@lxpanel --profile LXDE - pi
+@pcmanfm --desktop - -profile LXDE - pi
+# @xscreensaver -no - splash
+@point-rpi
+@xset s off
+@xset s noblank
+@xset -dpms
+@unclutter -idle 5 -root
+@/home/pi/start_URLrefresh.sh
+@/home/pi/start_chromium.sh
+""")
     f.close()
     # set the boot value to 3
     print("boot order is now 3")
