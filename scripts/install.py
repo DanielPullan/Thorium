@@ -323,11 +323,10 @@ elif bootvalue == "2":
     """)
     f.close()
 
-    # TODO kiosk mode
     # TODO cron job to update content every day at 2am
-
     # TODO autologin as pi on login
-    # TODO wait for network on boot
+
+    # ISSUE: autologin doesn't appear to work
 
     # removing thorium folders in case it already exists (it shouldn't)
     print("removing folders just in case")
