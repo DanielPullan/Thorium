@@ -323,11 +323,6 @@ xserver - command = X - s 0 dpms
     f.close()
     subprocess.call(['sudo', 'dpkg-reconfigure', 'lightdm'])
 
-    # TODO cron job to update content every day at 2am
-    # TODO autologin as pi on login
-
-    # ISSUE: autologin doesn't appear to work
-
     # removing thorium folders in case it already exists (it shouldn't)
     print("removing folders just in case")
     subprocess.call(["sudo", "rm", "-rf", "thorium"])
@@ -404,4 +399,7 @@ xserver - command = X - s 0 dpms
     f.close()
 else:
     # once we've done everything... remove the file!
-    print("shit don't work")
+    subprocess.call(['sudo ', 'rm', 'install.py'])
+    print("install.py has been removed")
+    subprocess.call(['sudo', 'rm', 'config.file'])
+    print("config.file removed, last state was ", bootvalue)
