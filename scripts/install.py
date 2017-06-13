@@ -8,6 +8,9 @@ from pathlib import Path
 import socket
 import time
 
+# TODO: Setup Private and Public Keys for login to Pi
+# TODO: Set up a server for the Pi's to listen to
+
 
 # Define a function for our config file detection / creation
 def filestep():
