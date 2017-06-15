@@ -10,6 +10,7 @@ import time
 
 # TODO: Setup Private and Public Keys for login to Pi
 # TODO: Set up a server for the Pi's to listen to
+# TODO: Look at running chrome with --no-first-run in order to skip the "you can seach from here with google"
 
 
 # Define a function for our config file detection / creation
@@ -402,7 +403,7 @@ xserver - command = X - s 0 dpms
     f.close()
 else:
     # once we've done everything... remove the file!
-    subprocess.call(['sudo ', 'rm', 'install.py'])
+    subprocess.call(['sudo', 'rm', 'install.py'])
     print("install.py has been removed")
     subprocess.call(['sudo', 'rm', 'config.file'])
     print("config.file removed, last state was ", bootvalue)

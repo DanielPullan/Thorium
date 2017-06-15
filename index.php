@@ -10,7 +10,7 @@
     <meta http-equiv="refresh" content="3600;url='http://localhost'">
 </head>
 
-<body>
+<body
 
     <div class="row header">
         <div class="col-7">
@@ -33,11 +33,8 @@
         <!-- the banner stuff gets called here, currently it's defined in a config.js file -->
         <div class="col-9">
             <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "1123";
-                $dbname = "thorium";
-
+                // add the password file
+                require('scripts/password.php');
                 // Create connection
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
                 // Check connection
