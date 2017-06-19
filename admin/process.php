@@ -2,13 +2,10 @@
 
 function Connect()
 {
- $dbhost = "localhost";
- $dbuser = "root";
- $dbpass = "1123";
- $dbname = "thorium";
+require '/scripts/password.php';
 
  // Create connection
- $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die($conn->connect_error);
+ $conn = new mysqli($servername, $username, $password, $dbname) or die($conn->connect_error);
 
  return $conn;
 }

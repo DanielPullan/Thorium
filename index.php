@@ -10,24 +10,24 @@
     <meta http-equiv="refresh" content="3600;url='http://localhost'">
 </head>
 
-<body
-
-    <div class="row header">
-        <div class="col-7">
-            <h1 class="headerText"><img src="/assets/logo.png" /></h1>
-        </div>
-        <div class="col-2">
-        </div>
-        <div class="col-3">
-            <div class="headerList">
-                <!-- the social media stuff gets called from config.js in /settings -->
-                <ul>
-                    <li><i class='fa fa-facebook fa-lg'></i><span id='facebook' class="socialText"></span></li>
-                    <li><i class='fa fa-twitter fa-lg'></i><span id='twitter' class="socialText"></span></li>
-                </ul>
-            </div>
+<body>
+    
+<div class="row header">
+    <div class="col-7">
+        <h1 class="headerText"><img src="/assets/logo.png" /></h1>
+    </div>
+    <div class="col-2">
+    </div>
+    <div class="col-3">
+        <div class="headerList">
+            <!-- the social media stuff gets called from config.js in /settings -->
+            <ul>
+                <li><i class='fa fa-facebook fa-lg'></i><span id='facebook' class="socialText"></span></li>
+                <li><i class='fa fa-twitter fa-lg'></i><span id='twitter' class="socialText"></span></li>
+            </ul>
         </div>
     </div>
+</div>
 
     <div class="row col-12 panel">
         <!-- the banner stuff gets called here, currently it's defined in a config.js file -->
