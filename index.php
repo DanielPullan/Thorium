@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    
+
 <div class="row header">
     <div class="col-7">
         <h1 class="headerText"><img src="/assets/logo.png" /></h1>
@@ -229,12 +229,14 @@ jQuery(document).ready(function($) {
     }(document, "script", "twitter-wjs"));
 
 </script>
-
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
 <!-- To put the date in the noticebar -->
 <script>
     var today = new Date();
-    $('#date').html(today.toDateString());
-
+    $('#date').html( $.datepicker.formatDate( "dd MM yy", today ) );
 </script>
 
 <!-- I should probably call this from my own website... Oh well -->
