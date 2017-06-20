@@ -402,6 +402,10 @@ xserver - command = X - s 0 dpms
     subprocess.call(['sudo', 'touch', '/var/www/html/thorium/scripts/password.php'])
     f = open('/var/www/html/thorium/scripts/password.php', 'w')
     f.write("""<?php
+    $servername = "<insert server name>";
+    $username = "<insert username for mysql>";
+    $password = "<insert mysql password>";
+    $dbname = "<insert database name>";
 ?>
 """)
     f.close()
