@@ -8,9 +8,11 @@ from pathlib import Path
 import socket
 import time
 
-# TODO: Setup Private and Public Keys for login to Pi
-# TODO: Set up a server for the Pi's to listen to
-# TODO: Look at running chrome with --no-first-run in order to skip the "you can seach from here with google"
+#TODO: Setup Private and Public Keys for login to Pi
+#TODO: Look at running chrome with --no-first-run in order to skip the "you can seach from here with google"
+#TODO: Change the "welcome to pixel" to the one I made
+#TODO: Do the whole add pi user to www-data etc
+#TODO: Script to restart only chrome
 
 
 # Define a function for our config file detection / creation
@@ -160,7 +162,7 @@ elif bootvalue == "2":
     f = open('/etc/lightdm/lightdm.conf', 'w')  # to clear the file
     f.write("""#
 # General configuration
-# 
+#
 # start-default-seat = True to always start one seat if none are defined in the configuration
 # greeter-user = User to run greeter as
 # minimum-display-number = Minimum display number to use for X servers
@@ -345,39 +347,40 @@ xserver - command = X - s 0 dpms
     f = open('/etc/apache2/sites-available/000-default.conf', 'w')  # to clear the file
     # write the new config in to direct to thorium folder
     print("hello new contents of default apache file")
-    f.write("""<VirtualHost *:80>
-    # The ServerName directive sets the request scheme, hostname and port that
-    # the server uses to identify itself. This is used when creating
-    # redirection URLs. In the context of virtual hosts, the ServerName
-    # specifies what hostname must appear in the request's Host: header to
-    # match this virtual host. For the default virtual host (this file) this
-    # value is not decisive as it is used as a last resort host regardless.
-    # However, you must set it for any further virtual host explicitly.
-    #ServerName www.example.com
+    f.write("""
+    <VirtualHost *:80>
+        # The ServerName directive sets the request scheme, hostname and port that
+        # the server uses to identify itself. This is used when creating
+        # redirection URLs. In the context of virtual hosts, the ServerName
+        # specifies what hostname must appear in the request's Host: header to
+        # match this virtual host. For the default virtual host (this file) this
+        # value is not decisive as it is used as a last resort host regardless.
+        # However, you must set it for any further virtual host explicitly.
+        #ServerName www.example.com
 
-    ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/thorium
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html/thorium
 
-    # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
-    # error, crit, alert, emerg.
-    # It is also possible to configure the loglevel for particular
-    # modules, e.g.
-    #LogLevel info ssl:warn
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
 
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-    # For most configuration files from conf-available/, which are
-    # enabled or disabled at a global level, it is possible to
-    # include a line for only one particular virtual host. For example the
-    # following line enables the CGI configuration for this host only
-    # after it has been globally disabled with "a2disconf".
-    #Include conf-available/serve-cgi-bin.conf
-</VirtualHost>
+        # For most configuration files from conf-available/, which are
+        # enabled or disabled at a global level, it is possible to
+        # include a line for only one particular virtual host. For example the
+        # following line enables the CGI configuration for this host only
+        # after it has been globally disabled with "a2disconf".
+        #Include conf-available/serve-cgi-bin.conf
+    </VirtualHost>
 
-# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+    # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 
-""")
+    """)
     # close the file like a good citizen
     f.close()
     # autostart stuff
@@ -395,6 +398,20 @@ xserver - command = X - s 0 dpms
 @/home/pi/start_chromium.sh
 """)
     f.close()
+    print("Set up the database connection stuff")
+    subprocess.call(['sudo', 'touch', '/var/www/html/thorium/scripts/password.php'])
+    f = open('/var/www/html/thorium/scripts/password.php', 'w')
+    f.write("""<?php
+?>
+""")
+    f.close()
+    # add pi user to www-data group
+    subprocess.call(['sudo', 'gpasswd', '-a', 'pi', 'www-data'])
+    # chown /var/www -R to pi:www-data
+    subprocess.call(['sudo', 'chown', '-R', 'pi:www-data', '/var/www'])
+    # copy restart script to home
+    subprocess.call(['sudo', 'chown', '-R', 'pi:www-data', '/var/www'])
+
     # set the boot value to 3
     print("boot order is now 3")
     f = open('config.file', 'w')
