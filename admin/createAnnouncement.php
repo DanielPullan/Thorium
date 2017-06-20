@@ -2,7 +2,7 @@
 
 function Connect()
 {
-require '/scripts/password.php';
+require __DIR__.'/../scripts/password.php';
 
  // Create connection
  $conn = new mysqli($servername, $username, $password, $dbname) or die($conn->connect_error);
