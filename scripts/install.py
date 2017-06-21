@@ -13,6 +13,7 @@ import time
 #TODO: Change the "welcome to pixel" to the one I made
 #TODO: Do the whole add pi user to www-data etc
 #TODO: Script to restart only chrome
+#TODO: Create update thorium script
 
 
 # Define a function for our config file detection / creation
@@ -409,6 +410,12 @@ xserver - command = X - s 0 dpms
 ?>
 """)
     f.close()
+    # do the refresh script stuff
+    subprocess.call(['touch', '/home/pi/refresh.py'])
+    f = open('/home/pi/refresh.py', 'w')
+    f.write("""subprocess.call(['export', 'DISPLAY=":0"'])
+    subprocess.call(['./start_chromium.sh'])""")
+    f.close()
     # add pi user to www-data group
     subprocess.call(['sudo', 'gpasswd', '-a', 'pi', 'www-data'])
     # chown /var/www -R to pi:www-data
@@ -441,7 +448,7 @@ disable_overscan=1
 #framebuffer_height=720
 
 # uncomment if hdmi display is not detected and composite is being output
-#hdmi_force_hotplug=1
+hdmi_force_hotplug=1
 
 # uncomment to force a specific HDMI mode (this will force VGA)
 hdmi_group=1
@@ -474,6 +481,9 @@ hdmi_mode=4
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on""")
     f.close()
+    # change the splash image
+    subprocess.call(['sudo', 'cp', '/var/www/html/thorium/assets/splash.png', '/usr/share/plymouth/themes/pix/'])
+    print("splash image changed")
     # set the boot value to 3
     print("boot order is now 3")
     f = open('config.file', 'w')
