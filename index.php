@@ -108,10 +108,10 @@
 <!-- Google Calendar bits -->
 <script src="js/format-google-calendar.js"></script>
 <script>formatGoogleCalendar.init({
-    calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/pullan.daniel@poolehigh.co.uk/events?key=AIzaSyBjVT0Svkp9vP9Mn4Vsafhi2agFJcaheDo',
+    calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/school@poolehigh.co.uk/events?key=AIzaSyBjVT0Svkp9vP9Mn4Vsafhi2agFJcaheDo',
     past: false,
     upcomingTopN: 3,
-    format: ['*summary*', '*date*', '*description*', '*location*'],
+    format: ['*summary*', '*date*', '*description*'],
 });</script>
 
 <!-- Twitter stuff -->
