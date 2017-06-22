@@ -55,6 +55,7 @@ html {
     background-color: var(--header-background-colour);
     border: 3px var(--header-background-color) solid;
     border-radius: 10px;
+    min-height: 500px;
 }
 
 .panelText {
@@ -77,8 +78,8 @@ h1 {
 h2 {
     color: var(--text-colour);
     font-family: var(--secondary-font);
-    margin-left: 10px;
-    margin-bottom: 0px;
+    margin: 0px!important;
+    margin-left: 12px!important;
 }
 #fa fa-location-arrow fa {
     font-family: var(--secondary-font);

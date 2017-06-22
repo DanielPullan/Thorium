@@ -17,8 +17,13 @@ clientsAffected = sys.argv[2]
 # TODO: AUTOMATICALLY SET UP CRONJOB SO THIS SCRIPT RUNS
 # TODO: ADD TO SCRIPT TO ACTUALLY RESTART THE PI'S EACH DAY AT X TIME, LESS CONFIG ON PI IS BETTER
 
-# piCanteenWEST = 1, piLester = 2, piSixthform = 3, piMusic = 4, piReception =
-# 5, piArt = 6, piTheatre = 7
+# piCanteenWEST = 1. IP =
+# piLester = 2. IP =
+# piSixthform = 3. IP =
+# piMusic = 4. IP =
+# piReception = 5. IP =
+# piArt = 6. IP =
+# piTheatre = 7. IP =
 
 # define all the clients and the commands to rsync to them
 exportpiCanteenWEST = ["rsync", "-a", "/var/www/", "pi@piCanteenWEST:/var/www/", "--delete"]
