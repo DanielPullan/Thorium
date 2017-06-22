@@ -90,7 +90,7 @@
         <div class="col-2">
             <!-- the twitter iframe gets called here, I would like to use the Twitter API instead, but not super important right now -->
             <ul>
-                <a class="twitter-timeline" href="https://twitter.com/poole_high" data-chrome="noscrollbar" data-width="400" data-height="500" tweet-limit="3">
+                <a class="twitter-timeline" href="<?php print $stuff['twitterLink']; ?>" data-chrome="noscrollbar" data-width="400" data-height="500" tweet-limit="3">
                 </a>
             </ul>
         </div>
