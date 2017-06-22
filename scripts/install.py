@@ -8,12 +8,8 @@ from pathlib import Path
 import socket
 import time
 
-#TODO: Setup Private and Public Keys for login to Pi
-#TODO: Look at running chrome with --no-first-run in order to skip the "you can seach from here with google"
-#TODO: Change the "welcome to pixel" to the one I made
-#TODO: Do the whole add pi user to www-data etc
-#TODO: Script to restart only chrome
-#TODO: Create update thorium script
+
+# TODO: Script to restart only chrome
 
 
 # Define a function for our config file detection / creation
