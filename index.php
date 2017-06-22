@@ -143,7 +143,7 @@
         function moveLeft() {
             $('#slider ul').animate({
                 left: +slideWidth
-            }, 200, function() {
+            }, 300, function() {
                 $('#slider ul li:last-child').prependTo('#slider ul');
                 $('#slider ul').css('left', '');
             });
@@ -152,7 +152,7 @@
         function moveRight() {
             $('#slider ul').animate({
                 left: -slideWidth
-            }, 200, function() {
+            }, 300, function() {
                 $('#slider ul li:first-child').appendTo('#slider ul');
                 $('#slider ul').css('left', '');
             });
@@ -167,49 +167,6 @@
 
 </script>
 
-<!-- Slider for the twitter stuff -->
-<script>
-jQuery(document).ready(function($) {
-    $('#checkbox').ready(function() {
-        setInterval(function() {
-            moveRight();
-        }, 3000);
-    });
-    var slideCount = $('#slider2 ul li').length;
-    var slideWidth = $('#slider2 ul li').width();
-    var slideHeight = $('#slider2 ul li').height();
-    var slider2UlWidth = slideCount * slideWidth;
-    $('#slider2').css({
-        width: slideWidth,
-        height: slideHeight
-    });
-    $('#slider2 ul').css({
-        });
-    $('#slider2 ul li:last-child').prependTo('#slider2 ul');
-        function moveLeft() {
-        $('#slider2 ul').animate({
-            left: +slideWidth
-        }, 200, function() {
-            $('#slider2 ul li:last-child').prependTo('#slider2 ul');
-            $('#slider2 ul').css('left', '');
-        });
-    };
-        function moveRight() {
-        $('#slider2 ul').animate({
-            left: -slideWidth
-        }, 200, function() {
-            $('#slider2 ul li:first-child').appendTo('#slider2 ul');
-            $('#slider2 ul').css('left', '');
-        });
-    };
-    $('a.control_prev').click(function() {
-        moveLeft();
-    });
-    $('a.control_next').click(function() {
-        moveRight();
-    });
-});
-</script>
 
 <!-- Twitter iFrame stuff, will remove when Twitter slider is complete -->
 <script>
