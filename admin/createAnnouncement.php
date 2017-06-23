@@ -11,8 +11,8 @@ require __DIR__.'/../scripts/password.php';
 }
 
 $conn    = Connect();
-$icon    = $_POST['icon'];
-$notice = $_POST['notice'];
+$icon    = $conn->real_escape_string($_POST['icon']);
+$notice = $conn->real_escape_string($_POST['notice']);
 $query   = "UPDATE noticebar SET icon='$icon', notice='$notice' WHERE ID='7'";
 
 //"INSERT INTO noticebar (icon, notice) VALUES ('$icon','$notice')";
