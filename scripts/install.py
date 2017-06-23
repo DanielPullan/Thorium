@@ -403,6 +403,10 @@ xserver - command = X - s 0 dpms
     $username = "<insert username for mysql>";
     $password = "<insert mysql password>";
     $dbname = "<insert database name>";
+    
+    $stuff [
+        'twitterLink' => 'https://twitter.com/poole_high'
+        ];
 ?>
 """)
     f.close()
