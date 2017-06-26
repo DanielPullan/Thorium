@@ -31,6 +31,8 @@ exportpiMusic = ["rsync", "-a", "/var/www/", "pi@piMusic:/var/www/", "--delete"]
 exportpiReception = ["rsync", "-a", "/var/www/", "pi@piReception:/var/www/", "--delete"]
 exportpiArt = ["rsync", "-a", "/var/www/", "pi@piMusic:/var/www/", "--delete"]
 exportpiTheatre = ["rsync", "-a", "/var/www/", "pi@piMusic:/var/www/", "--delete"]
+exportpiCanteenEAST = ["rsync", "-a", "/var/www/", "pi@piCanteenEAST:/var/www/", "--delete"]
+
 
 restartpiCanteenWEST = ["ssh", "pi@piCanteenWEST", "sudo", "shutdown", "-r", "now"]
 restartpiLester = ["ssh", "pi@piLester", "sudo", "shutdown", "-r", "now"]
@@ -39,6 +41,7 @@ restartpiMusic = ["ssh", "pi@piMusic", "sudo", "shutdown", "-r", "now"]
 restartpiReception = ["ssh", "pi@piReception", "sudo", "shutdown", "-r", "now"]
 restartpiArt = ["ssh", "pi@piArt", "sudo", "shutdown", "-r", "now"]
 restartpiTheatre = ["ssh", "pi@piTheatre", "sudo", "shutdown", "-r", "now"]
+restartpiCanteenEAST = ["ssh", "pi@piCanteenEAST", "sudo", "shutdown", "-r", "now"]
 
 # using apt-get instead of apt as apt's cli is not stable yet
 upgradepiCanteenWEST = ["ssh", "pi@piCanteenWEST", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade",
@@ -49,6 +52,7 @@ upgradepiMusic = ["ssh", "pi@piMusic", "sudo", "apt-get", "update", "&&", "sudo"
 upgradepiReception = ["ssh", "pi@piReception", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
 upgradepiArt = ["ssh", "pi@piArt", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
 upgradepiTheatre = ["ssh", "pi@piTheatre", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradepiCanteenEAST = ["ssh", "pi@piCanteenEAST", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
 
 # Export
 
@@ -73,6 +77,9 @@ if clientsAffected == "all" and userCommand == "export":
     time.sleep(5)
     subprocess.call(exportpiTheatre)
     print("exported to piTheatre at " + time.strftime("%H:%M:%S"))
+    time.sleep(5)
+    subprocess.call(exportpiCanteenEAST)
+    print("exported to piCanteenEAST at " + time.strftime("%H:%M:%S"))
 elif clientsAffected == "piCanteenWEST" and userCommand == "export":
     subprocess.call(exportpiCanteenWEST)
     print("exported to piCanteenWEST " + time.strftime("%H:%M:%S"))
@@ -94,6 +101,9 @@ elif clientsAffected == "piArt" and userCommand == "export":
 elif clientsAffected == "piTheatre" and userCommand == "export":
     subprocess.call(exportpiTheatre)
     print("exported to piTheatre " + time.strftime("%H:%M:%S"))
+elif clientsAffected == "piCanteenEAST" and userCommand == "export":
+    subprocess.call(exportpiCanteenEAST)
+    print("exported to piCanteenEAST " + time.strftime("%H:%M:%S"))
 
 # Restart
 
@@ -112,6 +122,8 @@ elif clientsAffected == "all" and userCommand == "restart":
     print("restarted piArt at " + time.strftime("%H:%M:%S"))
     subprocess.call(restartpiTheatre)
     print("restarted piTheatre at " + time.strftime("%H:%M:%S"))
+    subprocess.call(restartpiCanteenEAST)
+    print("restarted piCanteenEAST at " + time.strftime("%H:%M:%S"))
 elif clientsAffected == "piCanteenWEST" and userCommand == "restart":
     subprocess.call(restartpiCanteenWEST)
     print("restarted piCanteenWEST " + time.strftime("%H:%M:%S"))
@@ -133,6 +145,9 @@ elif clientsAffected == "piArt" and userCommand == "restart":
 elif clientsAffected == "piTheatre" and userCommand == "restart":
     subprocess.call(restartpiTheatre)
     print("restarted piTheatre " + time.strftime("%H:%M:%S"))
+elif clientsAffected == "piCanteenEAST" and userCommand == "restart":
+    subprocess.call(restartpiCanteenEAST)
+    print("restarted piCanteenEAST " + time.strftime("%H:%M:%S"))
 
 # Upgrade
 
@@ -152,6 +167,8 @@ elif clientsAffected == "all" and userCommand == "upgrade":
     print("upgraded piArt at " + time.strftime("%H:%M:%S"))
     subprocess.call(upgradepiTheatre)
     print("upgraded piTheatre at " + time.strftime("%H:%M:%S"))
+    subprocess.call(upgradepiCanteenEAST)
+    print("upgraded piCanteenEAST at " + time.strftime("%H:%M:%S"))
 elif clientsAffected == "piCanteenWEST" and userCommand == "upgrade":
     print("This process can take a very long time, please be patient")
     subprocess.call(upgradepiCanteenWEST)
@@ -180,7 +197,10 @@ elif clientsAffected == "piTheatre" and userCommand == "upgrade":
     print("This process can take a very long time, please be patient")
     subprocess.call(upgradepiTheatre)
     print("upgraded piTheatre " + time.strftime("%H:%M:%S"))
-
+elif clientsAffected == "piCanteenEAST" and userCommand == "upgrade":
+    print("This process can take a very long time, please be patient")
+    subprocess.call(upgradepiCanteenEAST)
+    print("upgraded piCanteenEAST " + time.strftime("%H:%M:%S"))
 # Else
 
 else:
