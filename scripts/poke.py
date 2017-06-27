@@ -6,6 +6,15 @@
 import requests
 import socket
 
+piCanteenWEST = "nada"
+piLester = "nada"
+piSixthform = "nada"
+piMusic = "nada"
+piReception = "nada"
+piArt = "nada"
+piTheatre = "nada"
+piCanteenEAST = "nada"
+piTesting = "nada"
 
 pi = [piCanteenWEST, piLester, piSixthform, piMusic, piReception, piArt, piTheatre, piCanteenEAST, piTesting]
 
