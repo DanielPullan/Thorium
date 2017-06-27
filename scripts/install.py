@@ -404,7 +404,7 @@ xserver - command = X - s 0 dpms
     $password = "<insert mysql password>";
     $dbname = "<insert database name>";
     
-    $stuff [
+    $stuff = [
         'twitterLink' => 'https://twitter.com/poole_high'
         ];
 ?>

@@ -9,8 +9,6 @@
 # /home/<currentuser> instead, but this is how this one is going to go. I can update this later. Maybe.
 
 import subprocess
-from pathlib import Path
-import socket
 import time
 
 print("You are about to update Thorium. Be careful as this script will cause you to need to set things up again")
@@ -49,9 +47,9 @@ print("Moving database file")
 subprocess.call(["sudo", "mv", "/home/administrator/password.php", "/var/www/html/thorium/scripts/password.php"])
 # move images back to thorium
 print("Moving images")
-subprocess.call(["sudo", "mv","/home/administrator/images", "/var/www/html/thorium/images"])
+subprocess.call(["sudo", "mv", "/home/administrator/images", "/var/www/html/thorium/images"])
 # move logo back to thorium
 print("Moving logo")
-subprocess.call(["sudo", "mv","/home/administrator/logo.png", "/var/www/html/thorium/assets/logo.png"])
+subprocess.call(["sudo", "mv", "/home/administrator/logo.png", "/var/www/html/thorium/assets/logo.png"])
 
 print("All done, I hope not much broke.")
