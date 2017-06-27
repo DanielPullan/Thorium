@@ -15,44 +15,49 @@ clientsAffected = sys.argv[2]
 # TODO: AUTOMATICALLY SET UP CRONJOB SO THIS SCRIPT RUNS
 # TODO: ADD TO SCRIPT TO ACTUALLY RESTART THE PI'S EACH DAY AT X TIME, LESS CONFIG ON PI IS BETTER
 
-# piCanteenWEST = 1. IP =
-# piLester = 2. IP =
-# piSixthform = 3. IP =
-# piMusic = 4. IP =
-# piReception = 5. IP =
-# piArt = 6. IP =
-# piTheatre = 7. IP =
+piCanteenWEST = "nada"
+piLester = "nada"
+piSixthform = "nada"
+piMusic = "nada"
+piReception = "nada"
+piArt = "nada"
+piTheatre = "nada"
+piCanteenEAST = "nada"
+piTesting = "nada"
 
 # define all the clients and the commands to rsync to them
-exportpiCanteenWEST = ["rsync", "-a", "/var/www/", "pi@piCanteenWEST:/var/www/", "--delete"]
-exportpiLester = ["rsync", "-a", "/var/www/", "pi@piLester:/var/www/", "--delete"]
-exportpiSixthform = ["rsync", "-a", "/var/www/", "pi@piSixthform:/var/www/", "--delete"]
-exportpiMusic = ["rsync", "-a", "/var/www/", "pi@piMusic:/var/www/", "--delete"]
-exportpiReception = ["rsync", "-a", "/var/www/", "pi@piReception:/var/www/", "--delete"]
-exportpiArt = ["rsync", "-a", "/var/www/", "pi@piMusic:/var/www/", "--delete"]
-exportpiTheatre = ["rsync", "-a", "/var/www/", "pi@piMusic:/var/www/", "--delete"]
-exportpiCanteenEAST = ["rsync", "-a", "/var/www/", "pi@piCanteenEAST:/var/www/", "--delete"]
+exportpiCanteenWEST = ["rsync", "-a", "/var/www/", "pi@" + piCanteenWEST + ":/var/www/", "--delete"]
+exportpiLester = ["rsync", "-a", "/var/www/", "pi@" + piLester + ":/var/www/", "--delete"]
+exportpiSixthform = ["rsync", "-a", "/var/www/", "pi@" + piSixthform + ":/var/www/", "--delete"]
+exportpiMusic = ["rsync", "-a", "/var/www/", "pi@" + piMusic + "/var/www/", "--delete"]
+exportpiReception = ["rsync", "-a", "/var/www/", "pi@" + piReception + ":/var/www/", "--delete"]
+exportpiArt = ["rsync", "-a", "/var/www/", "pi@" + piArt + ":/var/www/", "--delete"]
+exportpiTheatre = ["rsync", "-a", "/var/www/", "pi@" + piTheatre + ":/var/www/", "--delete"]
+exportpiCanteenEAST = ["rsync", "-a", "/var/www/", "pi@" + piCanteenEAST + ":/var/www/", "--delete"]
+exportpiTesting = ["rsync", "-a", "/var/www/", "pi@" + piTesting + ":/var/www/", "--delete"]
 
-
-restartpiCanteenWEST = ["ssh", "pi@piCanteenWEST", "sudo", "shutdown", "-r", "now"]
-restartpiLester = ["ssh", "pi@piLester", "sudo", "shutdown", "-r", "now"]
-restartpiSixthform = ["ssh", "pi@piSixthform", "sudo", "shutdown", "-r", "now"]
-restartpiMusic = ["ssh", "pi@piMusic", "sudo", "shutdown", "-r", "now"]
-restartpiReception = ["ssh", "pi@piReception", "sudo", "shutdown", "-r", "now"]
-restartpiArt = ["ssh", "pi@piArt", "sudo", "shutdown", "-r", "now"]
-restartpiTheatre = ["ssh", "pi@piTheatre", "sudo", "shutdown", "-r", "now"]
-restartpiCanteenEAST = ["ssh", "pi@piCanteenEAST", "sudo", "shutdown", "-r", "now"]
+restartpiCanteenWEST = ["ssh", "pi@" + piCanteenWEST, "sudo", "shutdown", "-r", "now"]
+restartpiLester = ["ssh", "pi@" + piLester, "sudo", "shutdown", "-r", "now"]
+restartpiSixthform = ["ssh", "pi@" + piSixthform, "sudo", "shutdown", "-r", "now"]
+restartpiMusic = ["ssh", "pi@" + piMusic, "sudo", "shutdown", "-r", "now"]
+restartpiReception = ["ssh", "pi@" + piReception, "sudo", "shutdown", "-r", "now"]
+restartpiArt = ["ssh", "pi@" + piArt, "sudo", "shutdown", "-r", "now"]
+restartpiTheatre = ["ssh", "pi@" + piTheatre, "sudo", "shutdown", "-r", "now"]
+restartpiCanteenEAST = ["ssh", "pi@" + piCanteenEAST, "sudo", "shutdown", "-r", "now"]
+restartpiTesting = ["ssh", "pi@" + piTesting, "sudo", "shutdown", "-r", "now"]
 
 # using apt-get instead of apt as apt's cli is not stable yet
-upgradepiCanteenWEST = ["ssh", "pi@piCanteenWEST", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade",
+upgradepiCanteenWEST = ["ssh", "pi@" + piCanteenWEST, "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade",
                         "-y"]
-upgradepiLester = ["ssh", "pi@piLester", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
-upgradepiSixthform = ["ssh", "pi@piSixthform", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
-upgradepiMusic = ["ssh", "pi@piMusic", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
-upgradepiReception = ["ssh", "pi@piReception", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
-upgradepiArt = ["ssh", "pi@piArt", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
-upgradepiTheatre = ["ssh", "pi@piTheatre", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
-upgradepiCanteenEAST = ["ssh", "pi@piCanteenEAST", "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradepiLester = ["ssh", "pi@" + piLester, "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradepiSixthform = ["ssh", "pi@" + piSixthform, "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradepiMusic = ["ssh", "pi@" + piMusic, "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradepiReception = ["ssh", "pi@" + piReception, "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradepiArt = ["ssh", "pi@" + piArt, "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradepiTheatre = ["ssh", "pi@" + piTheatre, "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
+upgradepiCanteenEAST = ["ssh", "pi@" + piCanteenEAST, "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade",
+                        "-y"]
+upgradepiTesting = ["ssh", "pi@" + piTesting, "sudo", "apt-get", "update", "&&", "sudo", "apt-get", "upgrade", "-y"]
 
 # Export
 
