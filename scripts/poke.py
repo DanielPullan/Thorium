@@ -6,6 +6,7 @@
 import requests
 import socket
 
+# Make pi name equal to it's IP
 piCanteenWEST = "nada"
 piLester = "nada"
 piSixthform = "nada"
@@ -16,8 +17,10 @@ piTheatre = "nada"
 piCanteenEAST = "nada"
 piTesting = "nada"
 
+# make an array/list of all the pies
 pi = [piCanteenWEST, piLester, piSixthform, piMusic, piReception, piArt, piTheatre, piCanteenEAST, piTesting]
 
+# for every pi in the pi array
 for pi in pi:
     try:
         r = requests.get('http://' + pi)
