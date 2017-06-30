@@ -16,13 +16,13 @@ clientsAffected = sys.argv[2]
 # TODO: ADD TO SCRIPT TO ACTUALLY RESTART THE PI'S EACH DAY AT X TIME, LESS CONFIG ON PI IS BETTER
 
 piCanteenWEST = "nada"
+piCanteenEAST = "nada"
+piMusic = "nada"
+piArt = "nada"
 piLester = "nada"
 piSixthform = "nada"
-piMusic = "nada"
 piReception = "nada"
-piArt = "nada"
 piTheatre = "nada"
-piCanteenEAST = "nada"
 piTesting = "nada"
 
 # define all the clients and the commands to rsync to them
@@ -116,22 +116,25 @@ elif clientsAffected == "piCanteenEAST" and userCommand == "export":
 # Restart
 
 elif clientsAffected == "all" and userCommand == "restart":
-    subprocess.call(restartpiCanteenWEST)
-    print("restarted piCanteenWEST at " + time.strftime("%H:%M:%S"))
-    subprocess.call(restartpiLester)
-    print("restarted piLester at " + time.strftime("%H:%M:%S"))
-    subprocess.call(restartpiSixthform)
-    print("restarted piSixthform at " + time.strftime("%H:%M:%S"))
-    subprocess.call(restartpiMusic)
-    print("restarted piMusic at " + time.strftime("%H:%M:%S"))
-    subprocess.call(restartpiReception)
-    print("restarted piReception at " + time.strftime("%H:%M:%S"))
-    subprocess.call(restartpiArt)
-    print("restarted piArt at " + time.strftime("%H:%M:%S"))
-    subprocess.call(restartpiTheatre)
-    print("restarted piTheatre at " + time.strftime("%H:%M:%S"))
-    subprocess.call(restartpiCanteenEAST)
-    print("restarted piCanteenEAST at " + time.strftime("%H:%M:%S"))
+    try:
+        subprocess.call(restartpiCanteenWEST)
+        print("restarted piCanteenWEST at " + time.strftime("%H:%M:%S"))
+        subprocess.call(restartpiLester)
+        print("restarted piLester at " + time.strftime("%H:%M:%S"))
+        subprocess.call(restartpiSixthform)
+        print("restarted piSixthform at " + time.strftime("%H:%M:%S"))
+        subprocess.call(restartpiMusic)
+        print("restarted piMusic at " + time.strftime("%H:%M:%S"))
+        subprocess.call(restartpiReception)
+        print("restarted piReception at " + time.strftime("%H:%M:%S"))
+        subprocess.call(restartpiArt)
+        print("restarted piArt at " + time.strftime("%H:%M:%S"))
+        subprocess.call(restartpiTheatre)
+        print("restarted piTheatre at " + time.strftime("%H:%M:%S"))
+        subprocess.call(restartpiCanteenEAST)
+        print("restarted piCanteenEAST at " + time.strftime("%H:%M:%S"))
+    except Exception as e:
+        pass
 elif clientsAffected == "piCanteenWEST" and userCommand == "restart":
     subprocess.call(restartpiCanteenWEST)
     print("restarted piCanteenWEST " + time.strftime("%H:%M:%S"))
@@ -160,23 +163,26 @@ elif clientsAffected == "piCanteenEAST" and userCommand == "restart":
 # Upgrade
 
 elif clientsAffected == "all" and userCommand == "upgrade":
-    print("This process can take a very long time, please be patient")
-    subprocess.call(upgradepiCanteenWEST)
-    print("upgraded piCanteenWEST at " + time.strftime("%H:%M:%S"))
-    subprocess.call(upgradepiLester)
-    print("upgraded piLester at " + time.strftime("%H:%M:%S"))
-    subprocess.call(upgradepiSixthform)
-    print("upgraded piSixthform at " + time.strftime("%H:%M:%S"))
-    subprocess.call(upgradepiMusic)
-    print("upgraded piMusic at " + time.strftime("%H:%M:%S"))
-    subprocess.call(upgradepiReception)
-    print("upgraded piReception at " + time.strftime("%H:%M:%S"))
-    subprocess.call(upgradepiArt)
-    print("upgraded piArt at " + time.strftime("%H:%M:%S"))
-    subprocess.call(upgradepiTheatre)
-    print("upgraded piTheatre at " + time.strftime("%H:%M:%S"))
-    subprocess.call(upgradepiCanteenEAST)
-    print("upgraded piCanteenEAST at " + time.strftime("%H:%M:%S"))
+    try:
+        print("This process can take a very long time, please be patient")
+        subprocess.call(upgradepiCanteenWEST)
+        print("upgraded piCanteenWEST at " + time.strftime("%H:%M:%S"))
+        subprocess.call(upgradepiLester)
+        print("upgraded piLester at " + time.strftime("%H:%M:%S"))
+        subprocess.call(upgradepiSixthform)
+        print("upgraded piSixthform at " + time.strftime("%H:%M:%S"))
+        subprocess.call(upgradepiMusic)
+        print("upgraded piMusic at " + time.strftime("%H:%M:%S"))
+        subprocess.call(upgradepiReception)
+        print("upgraded piReception at " + time.strftime("%H:%M:%S"))
+        subprocess.call(upgradepiArt)
+        print("upgraded piArt at " + time.strftime("%H:%M:%S"))
+        subprocess.call(upgradepiTheatre)
+        print("upgraded piTheatre at " + time.strftime("%H:%M:%S"))
+        subprocess.call(upgradepiCanteenEAST)
+        print("upgraded piCanteenEAST at " + time.strftime("%H:%M:%S"))
+    except Exception as e:
+        pass
 elif clientsAffected == "piCanteenWEST" and userCommand == "upgrade":
     print("This process can take a very long time, please be patient")
     subprocess.call(upgradepiCanteenWEST)
