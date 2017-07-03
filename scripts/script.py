@@ -215,6 +215,14 @@ elif clientsAffected == "piCanteenEAST" and userCommand == "upgrade":
     print("This process can take a very long time, please be patient")
     subprocess.call(upgradepiCanteenEAST)
     print("upgraded piCanteenEAST " + time.strftime("%H:%M:%S"))
+
+# Help / Various
+elif userCommand == "help" and clientsAffected == "help":
+	print("""The commands avaliable are 'upgrade', 'export' and 'restart'.
+The clients availiable are 'all' or piLocation, example would be 'piLester'.
+Case sensitive.
+""")
+	time.sleep(10)
 # Else
 
 else:
