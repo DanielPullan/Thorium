@@ -146,7 +146,7 @@ elif bootvalue == "2":
     f.write("""
     # Start a goofy command loop to refresh the browser every 90 seconds
     /bin/sleep 6
-    /usr/bin/lxterminal --command watch -n 986400 xdotool key ctrl+F5 &
+    /usr/bin/lxterminal --command watch -n 300 xdotool key ctrl+F5 &
     # End of goofy script
     """)
     f.close()
