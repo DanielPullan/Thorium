@@ -1,5 +1,6 @@
 # Thorium Install Script
 # Daniel Pullan (https://danielpullan.co.uk)
+
 # Find out more about this script at https://danielpullan.co.uk/?thorium-install-script
 # Instructions on how to use this script are found at https://github.com/DanielPullan/Thorium/wiki/How-to-use-Install.py
 

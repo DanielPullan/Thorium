@@ -1,5 +1,6 @@
 # Thorium Device Management Script
 # Daniel Pullan (https://danielpullan.co.uk)
+
 # Find out more about this script at https://danielpullan.co.uk/?thorium-device-management-script
 # Instructions on how to use this script are found at https://github.com/DanielPullan/Thorium/wiki/How-to-use-manage.py
 
@@ -218,11 +219,11 @@ elif clientsAffected == "piCanteenEAST" and userCommand == "upgrade":
 
 # Help / Various
 elif userCommand == "help" and clientsAffected == "help":
-	print("""The commands avaliable are 'upgrade', 'export' and 'restart'.
+    print("""The commands available are 'upgrade', 'export' and 'restart'.
 The clients availiable are 'all' or piLocation, example would be 'piLester'.
 Case sensitive.
 """)
-	time.sleep(10)
+    time.sleep(10)
 # Else
 
 else:

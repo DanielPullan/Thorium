@@ -1,5 +1,6 @@
 # Thorium Update Script
 # Daniel Pullan (https://danielpullan.co.uk)
+
 # Find out more about Thorium at https://danielpullan.co.uk/?thorium
 # Instructions on how to use this script are found at https://github.com/DanielPullan/Thorium/wiki/how-to-update
 
