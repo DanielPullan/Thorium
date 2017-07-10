@@ -2,9 +2,7 @@
 # Daniel Pullan (https://danielpullan.co.uk)
 
 # To check if devices have gone down. If they have, send an alert.
-
 import requests
-import socket
 
 # Make pi name equal to it's IP
 piCanteenWEST = "nada"
@@ -23,15 +21,13 @@ pi = [piCanteenWEST, piLester, piSixthform, piMusic, piReception, piArt, piTheat
 piUp = 0
 numberOfPis = len(pi)
 
-
 # for every pi in the pi array
 for pi in pi:
     try:
         r = requests.get('http://' + pi)
-        s = socket.gethostbyaddr(pi)
-        print(*s, r.status_code)
         piUp = piUp + 1
-        print(piUp, numberOfPis)
+        print(piUp, "out of", numberOfPis, "are online")
     except requests.exceptions.RequestException as e:
         print(pi + " is down")
+        print(piUp, "out of", numberOfPis, "are online")
         pass
