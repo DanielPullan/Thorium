@@ -10,7 +10,7 @@ import socket
 import time
 
 
-# TODO: Script to restart only chrome
+# TODO: Script to restart only 
 
 
 # Define a function for our config file detection / creation
@@ -138,7 +138,7 @@ elif bootvalue == "2":
     f.write("""
     # Run browser after boot to desktop
     /bin/sleep 3
-    sudo -u pi chromium-browser --kiosk --incognito http://localhost &
+    sudo -u pi chromium --kiosk --incognito http://localhost &
     # End of script
     """)
     f.close()
