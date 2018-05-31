@@ -23,7 +23,7 @@ ini_set('display_errors', 1);
 $logo='assets/logo.png';
 
 if (file_exists($logo)) {
-  echo "<img src='".$logo."'/>";
+  echo "<img src='".$logo."' class='logoImage'/>";
 } else {
       echo "<span id='schoolName'></span>";
     }
