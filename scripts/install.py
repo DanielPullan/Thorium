@@ -10,7 +10,7 @@ import socket
 import time
 
 
-# TODO: Script to restart only 
+# TODO: Script to restart only
 
 
 # Define a function for our config file detection / creation
@@ -111,10 +111,10 @@ elif bootvalue == "1":
     print("Installing a desktop")
     subprocess.call(["sudo", "apt-get", "install", "raspberrypi-ui-mods", "-y"])
     # Install PHP and PHP Related stuff
-    print("installing php5 and friends")
+    print("installing php7 and friends")
     subprocess.call([
-        "sudo", "apt-get", "install", "php5", "php5-common", "libapache2-mod-php5", "php5-mysql", "php5-curl",
-        "php5-json", "-y"])
+        "sudo", "apt-get", "install", "php", "php-common", "php-mysql", "php-curl",
+        "php-json", "-y"])
     # Install git and rsync
     print("installing git")
     subprocess.call(["sudo", "apt-get", "install", "git", "rsync", "-y"])
@@ -404,7 +404,7 @@ xserver - command = X - s 0 dpms
     $username = "<insert username for mysql>";
     $password = "<insert mysql password>";
     $dbname = "<insert database name>";
-    
+
     $stuff = [
         'twitterLink' => 'https://twitter.com/poole_high'
         ];
