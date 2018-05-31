@@ -9,14 +9,29 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="refresh" content="3600;url='http://localhost'">
 </head>
-
 <body>
 
 <div class="row header">
     <div class="col-7">
-        <h1 class="headerText"><img src="/assets/logo.png" /></h1>
+        <h1>
+
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$logo='assets/logo.png';
+
+if (file_exists($logo)) {
+  echo "<img src='".$logo."'/>";
+} else {
+      echo "<span id='schoolName'></span>";
+    }
+?>
+</h1>
     </div>
     <div class="col-2">
+      <!-- This page intentionally left blank. -->
     </div>
     <div class="col-3">
         <div class="headerList">
@@ -29,74 +44,64 @@
     </div>
 </div>
 
-    <div class="row col-12 panel">
-        <!-- the banner stuff gets called here, currently it's defined in a config.js file -->
-        <div class="col-9">
-            <?php
-                // add the password file
-                require('scripts/password.php');
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $dbname);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
+<div class="row col-12 panel">
+<!-- the banner stuff gets called here, currently its defined in a config.js file -->
+<div class="col-9">
+<?php
+// add the password file
+require_once('scripts/password.php');
 
-                $sql = "SELECT id, icon, notice FROM noticebar";
-                $result = mysqli_query($conn, $sql);
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        while($row = mysqli_fetch_assoc($result)) {
-            echo "<p class='panelText'><i class='" . $row["icon"] . "'></i>". $row["notice"] . " ";
-         }
-        mysqli_close($conn);
-        ?>
-        </div>
-        <div class="col-3">
-            <p id='date' style="text-align:right;"></p>
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT id, icon, notice FROM noticebar";
+$result = mysqli_query($conn, $sql);
+
+while($row = mysqli_fetch_assoc($result)) {
+  echo "<p class='panelText'><i class='" . $row["icon"] . "'></i>". $row["notice"] . " ";
+  }
+
+mysqli_close($conn);
+?>
+</div>
+    <div class="col-3">
+        <p id='date' style="text-align:right;"></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <div class="slider datePanel">
+            <ul>
+                <!-- the google calendar gets placed here -->
+                <ul id="events-upcoming">
+                </ul>
+            </ul>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-4">
-            <div class="slider datePanel">
-                <ul>
-                    <!-- the google calendar gets placed here -->
-                    <ul id="events-upcoming">
-                    </ul>
-                </ul>
-            </div>
-
-        </div>
-        <div class="col-6">
-            <div id="slider">
-
-
-
-
-
-                <ul>
-                    <!-- this is a bit of php i found online, it looks for the images folder then every image inside becomes a li, then the slideshow displays it -->
-                    <?php
+    <div class="col-8">
+        <div id="slider">
+            <ul>
+                <!-- this is a bit of php i found online, it looks for the images folder then every image inside becomes a li, then the slideshow displays it -->
+                <?php
                 $dirname = "images/";
                 $images = glob($dirname."*.*");
 
                 foreach($images as $image) {
-                echo "<li><img src='".$image."' /><br /></li>";
-            }
+                  echo "<li><img src='".$image."' /><br /></li>";
+                }
                 ?>
-                </ul>
-            </div>
-        </div>
-        <div class="col-2">
-            <!-- the twitter iframe gets called here, I would like to use the Twitter API instead, but not super important right now -->
-            <ul>
-                <a class="twitter-timeline" href="<?php print $stuff['twitterLink']; ?>" data-chrome="noscrollbar" data-width="400" data-height="500" tweet-limit="3">
-                </a>
             </ul>
         </div>
     </div>
+</div>
 
-
+?>
 </body>
 
 <!-- Jquery -->
@@ -125,7 +130,7 @@
         $('#checkbox').ready(function() {
             setInterval(function() {
                 moveRight();
-            }, 3000);
+            }, 9000);
         });
         var slideCount = $('#slider ul li').length;
         var slideWidth = $('#slider ul li').width();
